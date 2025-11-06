@@ -15,7 +15,7 @@ class QrController extends Controller
     {
         // URL complète du menu
         // ⚠️ Remplace ton IP locale ici si tu veux tester sur ton téléphone
-        $menuUrl = 'http://172.20.10.2:8000/menu';
+        $menuUrl = 'https://hewabora.synergieup.store/menu';
 
         // Envoie l’URL à la vue
         return view('qrcode', compact('menuUrl'));
