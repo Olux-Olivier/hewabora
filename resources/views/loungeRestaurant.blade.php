@@ -56,11 +56,11 @@
             Night Club
             </a>
 
-            <a href="{{ url('/fresh') }}"
+            {{-- <a href="{{ url('/fresh') }}"
             class="px-4 py-2 rounded shadow font-semibold
             {{ Request::is('fresh') ? 'bg-red-600 text-white' : 'bg-white text-red-600 hover:bg-red-100' }}">
             Fresh
-            </a>
+            </a> --}}
         </div>
 
         {{-- Fin liens type menu --}}
