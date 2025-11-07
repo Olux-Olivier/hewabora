@@ -64,8 +64,8 @@
 <div id="products" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
     <!-- Salades -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">Salades</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">Salades</h2>
     </div>
 
     <div class="bg-white shadow rounded overflow-hidden">
@@ -117,8 +117,8 @@
     </div>
 
     <!-- Entrées -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">Entrées</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">Entrées</h2>
     </div>
 
     <div class="bg-white shadow rounded overflow-hidden">
@@ -154,24 +154,25 @@
     </div>
 
     <!-- Soups -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">Soups</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">Soups</h2>
     </div>
 
     <!-- BBQ -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">BBQ</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">BBQ</h2>
     </div>
 
     <!-- Hamburgers -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">Hamburgers</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">Hamburgers</h2>
     </div>
 
     <!-- Pizza -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
-        <h2 class="text-2xl font-bold text-red-700">Pizza</h2>
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
+        <h2 class="text-2xl font-bold text-red-700 text-center">Pizza</h2>
     </div>
+
 
 </div>
 
