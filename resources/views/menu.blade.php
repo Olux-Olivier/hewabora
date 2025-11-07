@@ -30,9 +30,10 @@
 
   <!-- Logo + Texte -->
   <div class="fade-in">
-    <img src="{{ asset('img/logo.png') }}" alt="Hewa Bora Logo" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-lg">
+    <img src="{{ asset('img/Hewa_Bora_Logo.png') }}" alt="Hewa Bora Logo" class="w-32 h-32 mx-auto mb-4 rounded-full shadow-lg">
     <h1 class="text-4xl font-bold text-red-700 mb-2">Hewa Bora</h1>
     <p class="text-gray-700 text-lg">Lubumbashi - Bienvenue 🍽️</p>
+    <Span>CÉ LA VIE</Span>
   </div>
 
   <!-- Animation de chargement -->

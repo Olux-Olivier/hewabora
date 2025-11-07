@@ -55,66 +55,126 @@
             {{ Request::is('night-club') ? 'bg-red-600 text-white' : 'bg-white text-red-600 hover:bg-red-100' }}">
             Night Club
             </a>
-
-            {{-- <a href="{{ url('/fresh') }}"
-            class="px-4 py-2 rounded shadow font-semibold
-            {{ Request::is('fresh') ? 'bg-red-600 text-white' : 'bg-white text-red-600 hover:bg-red-100' }}">
-            Fresh
-            </a> --}}
         </div>
 
         {{-- Fin liens type menu --}}
 
 
         <!-- Products Grid -->
-        <div id="vegetable" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @for ($i = 1; $i <= 4; $i++)
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="{{ asset('img/product-'.$i.'.jpg') }}" alt="Product {{$i}}" class="w-full h-48 object-cover">
-                    <div class="p-4 text-center">
-                        <h2 class="font-semibold text-lg">Fresh Tomato</h2>
-                        <p class="text-red-600 font-bold">$19.00 <span class="line-through text-gray-400">$29.00</span></p>
-                    </div>
-                    <div class="flex border-t">
-                        <a href="#" class="w-1/2 py-2 text-center border-r text-gray-600 hover:text-red-600"><i class="fas fa-eye me-1"></i>View</a>
-                        <a href="#" class="w-1/2 py-2 text-center text-gray-600 hover:text-red-600"><i class="fas fa-shopping-bag me-1"></i>Add</a>
-                    </div>
-                </div>
-            @endfor
-        </div>
+<div id="products" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
-        <div id="fruits" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @for ($i = 1; $i <= 4; $i++)
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="{{ asset('img/product-'.$i.'.jpg') }}" alt="Product {{$i}}" class="w-full h-48 object-cover">
-                    <div class="p-4 text-center">
-                        <h2 class="font-semibold text-lg">Fresh Apple</h2>
-                        <p class="text-red-600 font-bold">$15.00</p>
-                    </div>
-                    <div class="flex border-t">
-                        <a href="#" class="w-1/2 py-2 text-center border-r text-gray-600 hover:text-red-600"><i class="fas fa-eye me-1"></i>View</a>
-                        <a href="#" class="w-1/2 py-2 text-center text-gray-600 hover:text-red-600"><i class="fas fa-shopping-bag me-1"></i>Add</a>
-                    </div>
-                </div>
-            @endfor
-        </div>
+    <!-- Salades -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">Salades</h2>
+    </div>
 
-        <div id="fresh" class="tab-content hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @for ($i = 1; $i <= 4; $i++)
-                <div class="bg-white shadow rounded overflow-hidden">
-                    <img src="{{ asset('img/product-'.$i.'.jpg') }}" alt="Product {{$i}}" class="w-full h-48 object-cover">
-                    <div class="p-4 text-center">
-                        <h2 class="font-semibold text-lg">Fresh Carrot</h2>
-                        <p class="text-red-600 font-bold">$12.00</p>
-                    </div>
-                    <div class="flex border-t">
-                        <a href="#" class="w-1/2 py-2 text-center border-r text-gray-600 hover:text-red-600"><i class="fas fa-eye me-1"></i>View</a>
-                        <a href="#" class="w-1/2 py-2 text-center text-gray-600 hover:text-red-600"><i class="fas fa-shopping-bag me-1"></i>Add</a>
-                    </div>
-                </div>
-            @endfor
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-1.jpg') }}" alt="Salade au carpaccio HEWA BORA Special" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Salade au carpaccio HEWA BORA Special</h2>
+            <p class="text-red-600 font-bold">$12.00</p>
         </div>
-    </section>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-2.jpg') }}" alt="Salade aux fruits de tomato aux yaourts" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Salade aux fruits de tomato aux yaourts</h2>
+            <p class="text-red-600 font-bold">$10.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-3.jpg') }}" alt="Salade Grec" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Salade Grec</h2>
+            <p class="text-red-600 font-bold">$10.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-4.jpg') }}" alt="Salade Vert" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Salade Vert</h2>
+            <p class="text-red-600 font-bold">$8.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-5.jpg') }}" alt="Classic Caesar" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Classic Caesar</h2>
+            <p class="text-red-600 font-bold">$10.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-6.jpg') }}" alt="Salade liégeoise" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Salade liégeoise</h2>
+            <p class="text-red-600 font-bold">$10.00</p>
+        </div>
+    </div>
+
+    <!-- Entrées -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">Entrées</h2>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-7.jpg') }}" alt="Halloumi Grillé" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Halloumi Grillé</h2>
+            <p class="text-red-600 font-bold">$10.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-8.jpg') }}" alt="Samosa Poulet/Viande/Legumes" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Samosa Poulet/Viande/Legumes</h2>
+            <p class="text-red-600 font-bold">$6.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-9.jpg') }}" alt="Nachos Poulet/Viande/Fromage" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">Nachos Poulet/Viande/Fromage</h2>
+            <p class="text-red-600 font-bold">$15.00</p>
+        </div>
+    </div>
+
+    <div class="bg-white shadow rounded overflow-hidden">
+        <img src="{{ asset('img/product-10.jpg') }}" alt="New York Fries" class="w-full h-48 object-cover">
+        <div class="p-4 text-center">
+            <h2 class="font-semibold text-lg">New York Fries</h2>
+            <p class="text-red-600 font-bold">$15.00</p>
+        </div>
+    </div>
+
+    <!-- Soups -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">Soups</h2>
+    </div>
+
+    <!-- BBQ -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">BBQ</h2>
+    </div>
+
+    <!-- Hamburgers -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">Hamburgers</h2>
+    </div>
+
+    <!-- Pizza -->
+    <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mb-4">
+        <h2 class="text-2xl font-bold text-red-700">Pizza</h2>
+    </div>
+
+</div>
+
 
     <!-- Scripts -->
     <script>
