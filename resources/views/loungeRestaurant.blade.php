@@ -3,17 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foody - Menu</title>
+    <title>Foody - Lounge Menu</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+
     <style>
         body {
             opacity: 0;
             transition: opacity 1s ease-in-out;
         }
-
         body.loaded {
             opacity: 1;
+        }
+        .tab-content { display: none; }
+        .tab-active { display: block; animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -36,161 +43,92 @@
     </header>
 
     <!-- Page Header -->
-    <section class="bg-red-100 pt-24 pb-12 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold text-red-700 mb-3">Lounge bar & Restaurant Menu</h1>
-        <p class="text-gray-700 max-w-xl mx-auto">Découvrez nos produits frais, bio et délicieux, préparés avec soin pour vous.</p>
+    <section class="relative pt-24 pb-12 text-center text-white overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('img/hero_bg.jpg') }}');"></div>
+        <div class="absolute inset-0 bg-black opacity-60"></div>
+        <div class="relative z-10">
+            <h1 class="font-[Playfair Display] text-5xl mb-3">Lounge Bar & Restaurant Menu</h1>
+        </div>
     </section>
 
-    <!-- Products Tabs -->
+    <!-- Onglets Food / Drink -->
+    <section class="container mx-auto py-6 px-4 text-center">
+        <button class="tab-btn bg-red-600 text-white px-6 py-2 rounded font-semibold mr-4 tab-active" data-tab="food-tab">Food</button>
+        <button class="tab-btn bg-red-100 text-red-600 px-6 py-2 rounded font-semibold" data-tab="drink-tab">Drink</button>
+    </section>
+
+    <!-- Contenu onglets -->
     <section class="container mx-auto py-12 px-4">
-        <div class="flex flex-wrap justify-center gap-2 mb-8">
-            <a href="{{ url('/lounge-restaurant') }}"
-            class="px-4 py-2 rounded shadow font-semibold
-            {{ Request::is('lounge-restaurant') ? 'bg-red-600 text-white' : 'bg-white text-red-600 hover:bg-red-100' }}">
-            Lounge bar & Restaurant
-            </a>
+        <!-- FOOD TAB -->
+        <div id="food-tab" class="tab-content tab-active">
+            @forelse($foodProducts as $dishType => $products)
+                <div class="dish-type-section mb-4 bg-red-50 py-2 rounded">
+                    <h3 class="text-xl font-semibold text-red-600 text-center">{{ $dishType }}</h3>
+                </div>
 
-            <a href="{{ url('/night-club') }}"
-            class="px-4 py-2 rounded shadow font-semibold
-            {{ Request::is('night-club') ? 'bg-red-600 text-white' : 'bg-white text-red-600 hover:bg-red-100' }}">
-            Night Club
-            </a>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    @foreach($products as $product)
+                        <div class="product-card bg-white shadow rounded overflow-hidden">
+                            <img src="{{ $product->image ? asset($product->image) : asset('img/default.jpg') }}"
+                                 alt="{{ $product->name }}" class="w-full h-48 object-cover">
+                            <div class="p-4 text-center">
+                                <h2 class="font-semibold text-lg">{{ $product->name }}</h2>
+                                <p class="text-red-600 font-bold">${{ number_format($product->price, 2) }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @empty
+                <p class="text-center text-gray-600">Aucun produit Food disponible pour le moment.</p>
+            @endforelse
         </div>
 
-        {{-- Fin liens type menu --}}
+        <!-- DRINK TAB -->
+        <div id="drink-tab" class="tab-content">
+            @forelse($drinkProducts as $dishType => $products)
+                <div class="dish-type-section mb-4 bg-red-50 py-2 rounded">
+                    <h3 class="text-xl font-semibold text-red-600 text-center">{{ $dishType }}</h3>
+                </div>
 
-
-        <!-- Products Grid -->
-<div id="products" class="tab-content grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-
-    <!-- Salades -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">Salades</h2>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-1.jpg') }}" alt="Salade au carpaccio HEWA BORA Special" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Salade au carpaccio HEWA BORA Special</h2>
-            <p class="text-red-600 font-bold">$12.00</p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    @foreach($products as $product)
+                        <div class="product-card bg-white shadow rounded overflow-hidden">
+                            <img src="{{ $product->image ? asset($product->image) : asset('img/default.jpg') }}"
+                                 alt="{{ $product->name }}" class="w-full h-48 object-cover">
+                            <div class="p-4 text-center">
+                                <h2 class="font-semibold text-lg">{{ $product->name }}</h2>
+                                <p class="text-red-600 font-bold">${{ number_format($product->price, 2) }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @empty
+                <p class="text-center text-gray-600">Aucun produit Drink disponible pour le moment.</p>
+            @endforelse
         </div>
-    </div>
+    </section>
 
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-2.jpg') }}" alt="Salade aux fruits de tomato aux yaourts" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Salade aux fruits de tomato aux yaourts</h2>
-            <p class="text-red-600 font-bold">$10.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-3.jpg') }}" alt="Salade Grec" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Salade Grec</h2>
-            <p class="text-red-600 font-bold">$10.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-4.jpg') }}" alt="Salade Vert" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Salade Vert</h2>
-            <p class="text-red-600 font-bold">$8.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-5.jpg') }}" alt="Classic Caesar" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Classic Caesar</h2>
-            <p class="text-red-600 font-bold">$10.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-6.jpg') }}" alt="Salade liégeoise" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Salade liégeoise</h2>
-            <p class="text-red-600 font-bold">$10.00</p>
-        </div>
-    </div>
-
-    <!-- Entrées -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">Entrées</h2>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-7.jpg') }}" alt="Halloumi Grillé" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Halloumi Grillé</h2>
-            <p class="text-red-600 font-bold">$10.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-8.jpg') }}" alt="Samosa Poulet/Viande/Legumes" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Samosa Poulet/Viande/Legumes</h2>
-            <p class="text-red-600 font-bold">$6.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-9.jpg') }}" alt="Nachos Poulet/Viande/Fromage" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">Nachos Poulet/Viande/Fromage</h2>
-            <p class="text-red-600 font-bold">$15.00</p>
-        </div>
-    </div>
-
-    <div class="bg-white shadow rounded overflow-hidden">
-        <img src="{{ asset('img/product-10.jpg') }}" alt="New York Fries" class="w-full h-48 object-cover">
-        <div class="p-4 text-center">
-            <h2 class="font-semibold text-lg">New York Fries</h2>
-            <p class="text-red-600 font-bold">$15.00</p>
-        </div>
-    </div>
-
-    <!-- Soups -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">Soups</h2>
-    </div>
-
-    <!-- BBQ -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">BBQ</h2>
-    </div>
-
-    <!-- Hamburgers -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">Hamburgers</h2>
-    </div>
-
-    <!-- Pizza -->
-    <div class="col-span-1 sm:col-span-2 lg:col-span-4 mb-4 bg-red-100 py-3">
-        <h2 class="text-2xl font-bold text-red-700 text-center">Pizza</h2>
-    </div>
-
-
-</div>
-
-
-    <!-- Scripts -->
+    <!-- Script Onglets -->
     <script>
-         window.addEventListener('load', () => {
+        window.addEventListener('load', () => {
             document.body.classList.add('loaded');
-        });
-        const tabs = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.tab-content');
 
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                contents.forEach(c => c.classList.add('hidden'));
-                document.getElementById(tab.dataset.tab).classList.remove('hidden');
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // retirer les classes actives
+                    tabs.forEach(t => t.classList.remove('tab-active', 'bg-red-600', 'text-white'));
+                    tab.classList.add('tab-active', 'bg-red-600', 'text-white');
+
+                    // afficher le bon contenu
+                    contents.forEach(c => c.classList.remove('tab-active'));
+                    document.getElementById(tab.dataset.tab).classList.add('tab-active');
+                });
             });
         });
     </script>
+
 </body>
 </html>

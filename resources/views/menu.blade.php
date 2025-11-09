@@ -46,7 +46,7 @@
   <!-- Script de redirection -->
   <script>
     setTimeout(() => {
-      window.location.href = "{{ url('/lounge-restaurant') }}";
+      window.location.href = "{{ url('/lounge/foods') }}";
     }, 3000); // redirige après 3 secondes
   </script>
 

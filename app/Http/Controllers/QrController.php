@@ -7,10 +7,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class QrController extends Controller
 {
-    /**
-     * Affiche la page contenant le QR code
-     * Quand on scanne, ça renvoie vers /menu
-     */
+
     public function show()
     {
         // URL complète du menu
