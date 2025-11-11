@@ -28,7 +28,7 @@
 
             <!-- Bouton Ajouter -->
             <div class="mb-4 flex justify-start">
-                <a href="#" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 shadow-md">
+                <a href="{{ url('/form') }}" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 shadow-md">
                     <i class="fa-solid fa-plus"></i>
                     <span>Ajouter un article</span>
                 </a>

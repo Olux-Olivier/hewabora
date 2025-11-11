@@ -51,7 +51,7 @@
 
             <!-- Bouton Ajouter -->
             <div class="mb-4 flex justify-start">
-                <a href="#" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 shadow-md">
+                <a href="{{ url('/form') }}" class="bg-purple-500 hover:bg-purple-600 text-white font-semibold px-4 py-2 rounded-lg flex items-center space-x-2 shadow-md">
                     <i class="fa-solid fa-plus"></i>
                     <span>Ajouter une boisson</span>
                 </a>
