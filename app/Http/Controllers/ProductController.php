@@ -77,7 +77,6 @@ class ProductController extends Controller
             'area' => $request->input('area'),
             'dish_type' => $request->input('dish_type'),
         ]);
-        dd($products);
         return redirect()->back()->with('success', 'Produit ajouté avec succès.');
 
     }

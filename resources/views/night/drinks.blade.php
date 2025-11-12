@@ -1,100 +1,173 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foody - Lounge Food</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hewa Bora | Night Club Drinks</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-    <style>
-        body {
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-        body.loaded {
-            opacity: 1;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .fadeIn { animation: fadeIn 0.5s ease-in-out; }
-    </style>
+  <style>
+    /* --- Arrière-plan élégant --- */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.35);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(to bottom right, rgba(0,0,0,0.85), rgba(255,215,0,0.1));
+      z-index: -1;
+    }
+
+    /* --- Effet d'apparition --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body { opacity: 0; transition: opacity 1s ease-in-out; }
+    body.loaded { opacity: 1; }
+    .fadeIn { animation: fadeIn 0.8s ease-in-out; }
+  </style>
 </head>
-<body class="bg-gray-50 font-sans">
 
-    <header class="bg-white shadow w-full z-50 py-4">
-        <div class="container mx-auto flex justify-center items-center space-x-6">
-            <!-- Texte HewaBora avec dégradé doré -->
-            <h1 class="text-3xl font-bold bg-clip-text text-transparent
-                    bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600">
-                HewaBora
-            </h1>
+<body class="min-h-screen text-white font-sans relative">
 
-            <!-- Lien Home -->
-            <a href="{{ url('/menu') }}"
-            class="text-gray-700 hover:text-black-600 font-semibold text-lg mt-2">
-                Home
-            </a>
-        </div>
-    </header>
-
-    <!-- Page Header -->
-    <section class="relative pt-24 pb-12 text-center text-white overflow-hidden">
-        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('img/hero_bg.jpg') }}');"></div>
-        <div class="absolute inset-0 bg-black opacity-60"></div>
-        <div class="relative z-10">
-            <h1 class="font-[Playfair Display] text-5xl mb-3">Night Club — Menu Drinks</h1>
-             <a href="{{route('lounge.foods')}}">Voir pour Lounge Bar</a>
-        </div>
-    </section>
-     <div class="flex justify-center space-x-6 my-6">
-        <a href="{{ route('night.drinks') }}"
-        class="px-6 py-2 font-semibold rounded transition
-           {{ Route::currentRouteName() == 'night.drinks' ? 'bg-red-600 text-white' : 'bg-red-100 text-red-600 hover:bg-red-200' }}">
-        Drinks
-        </a>
-        <a href="{{ route('night.foods') }}"
-        class="px-6 py-2 font-semibold rounded transition
-           {{ Route::currentRouteName() == 'night.foods' ? 'bg-red-600 text-white' : 'bg-red-100 text-red-600 hover:bg-red-200' }}">
-        Foods
-        </a>
+  <!-- HEADER -->
+  <header class="backdrop-blur-md bg-black/40 border-b border-yellow-500/30 shadow-lg py-4 fixed top-0 left-0 w-full z-50">
+    <div class="container mx-auto flex justify-center items-center space-x-6">
+      <img src="{{ asset('img/Hewa_Bora_Logo.png') }}" alt="Hewa Bora Logo"
+           class="w-12 h-12 rounded-full border-2 border-yellow-500/70 shadow-md">
+      <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-white bg-clip-text text-transparent">
+        Hewa Bora
+      </h1>
+      <a href="{{ url('/menu') }}"
+         class="text-yellow-400 hover:text-white transition  text-lg">
+         home
+      </a>
     </div>
-    <!-- Liste des produits Food -->
-    <section class="container mx-auto py-12 px-4 fadeIn">
-        @forelse($drinkProducts as $dishType => $products)
-            <!-- Nom du type de plat -->
-            <div class="dish-type-section mb-4 bg-red-50 py-2 rounded">
-                <h3 class="text-xl font-semibold text-red-600 text-center">{{ $dishType }}</h3>
+  </header>
+
+  <!-- EN-TÊTE DE PAGE -->
+  <section class="relative pt-32 pb-16 text-center fadeIn">
+    <h1 class="font-[Playfair Display] text-5xl mb-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-white bg-clip-text text-transparent drop-shadow-lg">
+      Night Club — Menu Drinks
+    </h1>
+    <p class="text-gray-300 mb-6">Savourez nos cocktails exclusifs dans une ambiance nocturne raffinée ✨</p>
+    <a href="{{ route('lounge.drinks') }}"
+       class="text-yellow-400 hover:text-white transition font-semibold">
+       Voir pour Lounge Bar
+    </a>
+  </section>
+
+  <!-- NAVIGATION -->
+  <div class="flex justify-center space-x-6 my-6 fadeIn">
+    <a href="{{ route('night.drinks') }}"
+       class="px-6 py-2 font-semibold rounded-lg border border-yellow-500/40 backdrop-blur-sm
+              {{ Route::currentRouteName() == 'night.drinks'
+                ? 'bg-yellow-500/80 text-black'
+                : 'bg-white/10 text-yellow-400 hover:bg-yellow-500/30' }}
+              transition duration-300">
+      Drinks
+    </a>
+    <a href="{{ route('night.foods') }}"
+       class="px-6 py-2 font-semibold rounded-lg border border-yellow-500/40 backdrop-blur-sm
+              {{ Route::currentRouteName() == 'night.foods'
+                ? 'bg-yellow-500/80 text-black'
+                : 'bg-white/10 text-yellow-400 hover:bg-yellow-500/30' }}
+              transition duration-300">
+      Foods
+    </a>
+  </div>
+
+  <!-- LISTE DES PRODUITS -->
+  <section class="container mx-auto py-12 px-6 fadeIn">
+    @forelse($drinkProducts as $dishType => $products)
+      <!-- Catégorie -->
+      <div class="mb-6 bg-white/10 border border-yellow-500/20 rounded-xl text-center py-3 shadow-lg">
+        <h3 class="text-2xl font-semibold text-yellow-400">{{ $dishType }}</h3>
+      </div>
+
+      <!-- Grille des boissons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        @foreach($products as $product)
+          <div class="bg-white/10 backdrop-blur-md border border-yellow-500/20 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transform transition duration-300">
+            <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('img/hero_bg.jpg') }}"
+                 alt="{{ $product->name }}" class="w-full h-48 object-cover opacity-90 hover:opacity-100 transition">
+            <div class="p-4 text-center">
+              <h2 class="font-semibold text-lg text-white">{{ $product->name }}</h2>
+              <p class="text-yellow-400 font-bold">${{ number_format($product->price, 2) }}</p>
             </div>
+          </div>
+        @endforeach
+      </div>
+    @empty
+      <p class="text-center text-gray-300">Aucune boisson disponible pour le moment.</p>
+    @endforelse
+  </section>
 
-            <!-- Grille de produits -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                @foreach($products as $product)
-                    <div class="product-card bg-white shadow rounded overflow-hidden hover:scale-105 transform transition duration-300">
-                        <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('img/hero_bg.jpg') }}"
-                            alt="{{ $product->name }}" class="w-full h-48 object-cover">
+   <!-- FOOTER -->
+<footer class="backdrop-blur-md bg-black/50 border-t border-yellow-500/30 text-white py-10 mt-12">
+  <div class="container mx-auto px-6 md:px-12">
+    <div class="flex flex-col md:flex-row justify-between items-center md:items-start space-y-6 md:space-y-0 md:space-x-6">
 
-                        <div class="p-4 text-center">
-                            <h2 class="font-semibold text-lg">{{ $product->name }}</h2>
-                            <p class="text-red-600 font-bold">${{ number_format($product->price, 2) }}</p>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        @empty
-            <p class="text-center text-gray-600">Aucun plat disponible pour le moment.</p>
-        @endforelse
-    </section>
+      <!-- Section Contact -->
+      <div class="text-center md:text-left">
+        <h3 class="text-xl font-semibold text-yellow-400 mb-2">Hewa Bora</h3>
+        <p class="text-gray-300 mb-2">Préservez vos moments avec nous.</p>
+        <p class="text-gray-400 text-sm">📍 Av. kapenda, Batiment Hypnose 3è niveau, Lubumbashi, RDC</p>
+        <p class="text-gray-400 text-sm">📞 +243 900 060 024</p>
+        <p class="text-gray-400 text-sm">✉️ contact@hewabora.com</p>
+      </div>
 
-    <!-- Script -->
-    <script>
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-        });
-    </script>
+      <!-- Section Liens -->
+      <div class="text-center md:text-left">
+        <h4 class="text-yellow-400 font-semibold mb-2">Liens</h4>
+        <ul class="space-y-1">
+          <li><a href="{{ url('/menu') }}" class="hover:text-yellow-300 transition">Accueil</a></li>
+          <li><a href="{{ route('lounge.foods') }}" class="hover:text-yellow-300 transition">Foods Lounge Bar</a></li>
+          <li><a href="{{ route('lounge.drinks') }}" class="hover:text-yellow-300 transition">Drinks Lounge Bar</a></li>
+          <li><a href="{{ route('night.foods') }}" class="hover:text-yellow-300 transition"> Foods Night club</a></li>
+          <li><a href="{{ route('night.drinks') }}" class="hover:text-yellow-300 transition">Drinks Night club</a></li>
+        </ul>
+      </div>
+
+      <!-- Section Réseaux Sociaux -->
+      <div class="text-center md:text-left">
+        <h4 class="text-yellow-400 font-semibold mb-2">Suivez-nous</h4>
+        <div class="flex justify-center md:justify-start space-x-4 text-xl">
+          <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright -->
+    <div class="mt-10 border-t border-yellow-500/20 pt-4 text-center text-gray-400 text-sm">
+      &copy; {{ date('Y') }} Synergie UP. Tous droits réservés.
+    </div>
+  </div>
+</footer>
+
+  <!-- SCRIPT -->
+  <script>
+    window.addEventListener('load', () => {
+      document.body.classList.add('loaded');
+    });
+  </script>
 
 </body>
 </html>
