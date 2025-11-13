@@ -133,8 +133,16 @@
     const dishContainer = document.getElementById('dish-options');
 
     const dishes = {
-      drink: ['Cocktails', 'Mocktails', 'Juices', 'Smoothies'],
-      food: ['Salades', 'Entrées', 'Soups', 'BBQ', 'Hamburgers', 'Pizza']
+      drink: ['Boissons Gazeuses et Eau', 'Jus Frais Naturel', 'Smoothies', 'Milk Shakes',
+        'Boissons Chaudes', 'Classique Cocktail', 'Cocktail Maison', 'Mocktails non-Alcool',
+        'Petit  Beers', 'Grandes Beers', 'Beers Importes', 'Vodka', 'Whisky', 'RUM', 'GIN',
+        'Tequila', 'Liqueur', 'Cognac', 'Champangne', 'Vin Rouge', 'Vin Blanc', 'Crème Liquer',
+        'Shots Measures 30ml', 'Shot Special', 'CIGARETTES/Cigars', 'Sheesha', ''
+      ],
+      food: ['Salades', 'Entrées', 'Soups', 'BBQ', 'Hamburgers', 'Pizza', 'Pain Plat', 'Shawarma',
+        'Pain Sandwich', 'Plat Congolais', ' Pasta', 'Plat Principal', 'Fruits de Mer', ' Accompagnment',
+        'Sauce au choix', ' Desserts', ''
+      ]
     };
 
     function updateDishOptions() {

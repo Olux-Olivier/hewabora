@@ -62,7 +62,7 @@
       Hewa Bora
     </h1>
     <p class="text-lg text-gray-200 font-light tracking-wide">Lubumbashi - Bienvenue 🍽️</p>
-    <span class="block mt-2 text-sm font-semibold text-yellow-400 tracking-widest">CÉ LA VIE</span>
+    <span class="block mt-2 text-sm font-semibold text-yellow-400 tracking-widest">CÉ LA VI</span>
   </div>
 
   <!-- Animation de chargement -->
