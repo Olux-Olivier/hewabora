@@ -37,19 +37,11 @@
             </div>
 
             {{-- tableau --}}
-            <table class="w-full text-left text-white">
-                <thead class="border-b border-white/20">
-                    <tr>
-                        <th class="py-3">Nom</th>
-                        <th class="py-3">Prix ($)</th>
-                        <th class="py-3">Categorie</th>
-                        <th class="py-3">Actions</th>
-                    </tr>
-                </thead>
+         
 
                 <x-product-table :products="$foodProducts" />
-                
-            </table>
+
+            
         </div>
     </main>
 </body>
