@@ -43,22 +43,10 @@
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @forelse ($foodProducts as $food)
-                       <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">{{$food[0]->name}}</td>
-                        <td>{{$food[0]->price}}</td>
-                        <td>{{$food[0]->category}}</td>
-                        <td>
-                            <a class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm mr-2" href="{{route('products.edit',  $food[0]->id)}}">Modifier</a>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
-                        </td>
-                    </tr> 
-                    @empty
-                        
-                    @endforelse
-                    
-                </tbody>
+                
+                
+                 <x-product-table :products="$foodProducts" />
+
             </table>
         </div>
     </main>

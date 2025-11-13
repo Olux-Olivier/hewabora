@@ -42,15 +42,13 @@ Route::get('/dashboard', function () {
 // Lounge
 Route::get('/dashboard/lounge/foods', [ProductController::class, 'dashloungeFoods'])->name('dashboard.lounge.foods');
 
-Route::get('/dashboard/lounge/drinks', function () {
-    return view('dashboard.lounge-drinks');
-})->name('dashboard.lounge.drinks');
+Route::get('/dashboard/lounge/drinks', [ProductController::class, 'dashLoungeDrinks'])->name('dashboard.lounge.drinks');
 
 // Night
 Route::get('/dashboard/night/foods', [ProductController::class, 'dashnightFoods'])->name('dashboard.night.foods');
 
-Route::get('/dashboard/night/drinks', function () {
-    return view('dashboard.night-drinks');
-})->name('dashboard.night.drinks');
+Route::get('/dashboard/night/drinks', [ProductController::class, 'dashNightDrinks'])->name('dashboard.night.drinks');
 
-// End DASHBOARD ROUTE
+
+Route::delete('/delete/{product}',[ProductController::class, 'destroy'])->name('products.destroy');
+

@@ -17,16 +17,19 @@ class ProductController extends Controller
             ->get()
             ->groupBy('dish_type');
 
+            
+
         return view('night.drinks', compact('drinkProducts'));
     }
 
     public function nightFoods()
     {
+       
         $foodProducts = Product::where('area', 'night')
             ->where('category', 'food')
             ->get()
             ->groupBy('dish_type');
-
+        
         return view('night.foods', compact('foodProducts'));
     }
 
@@ -37,11 +40,14 @@ class ProductController extends Controller
             ->get()
             ->groupBy('dish_type');
 
+            
+
         return view('lounge.drinks', compact('drinkProducts'));
     }
 
     public function loungeFoods()
     {
+    
         $foodProducts = Product::where('area', 'lounge')
             ->where('category', 'food')
             ->get()
@@ -131,12 +137,28 @@ class ProductController extends Controller
             ->groupBy('dish_type');
         return view('dashboard.night-foods', compact('foodProducts'));
     }
-    
-    public function show(Product $product)
-    {
-      
-    }
 
+    public function dashLoungeDrinks()
+{
+    $drinkProducts = Product::where('area', 'lounge')
+        ->where('category', 'drink')
+        ->get()
+        ->groupBy('dish_type');
+
+    return view('dashboard.lounge-drinks', compact('drinkProducts'));
+}
+
+public function dashNightDrinks()
+{
+    $drinkProducts = Product::where('area', 'night')
+        ->where('category', 'drink')
+        ->get()
+        ->groupBy('dish_type');
+
+    return view('dashboard.night-drinks', compact('drinkProducts'));
+}
+
+    
    
     public function edit(Product $product)
     {
@@ -144,7 +166,17 @@ class ProductController extends Controller
     }
 
     public function destroy(Product $product)
-    {
-        
+{
+    // Supprimer l'image si elle existe
+    if ($product->image && file_exists(storage_path('app/public/' . $product->image))) {
+        unlink(storage_path('app/public/' . $product->image));
     }
+
+    // Supprimer le produit de la base de données
+    $product->delete();
+
+    // Redirection avec message de succès
+    return redirect()->back()->with('success', 'Produit supprimé avec succès.');
+}
+
 }

@@ -66,32 +66,9 @@
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Whisky Double</td>
-                        <td>15</td>
-                        <td>
-                            <button class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-lg text-sm mr-2">
-                                <i class="fa-solid fa-pen-to-square"></i> Modifier
-                            </button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">
-                                <i class="fa-solid fa-trash"></i> Supprimer
-                            </button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Vodka Energy</td>
-                        <td>12</td>
-                        <td>
-                            <button class="bg-purple-500 hover:bg-purple-600 text-white px-3 py-1 rounded-lg text-sm mr-2">
-                                <i class="fa-solid fa-pen-to-square"></i> Modifier
-                            </button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">
-                                <i class="fa-solid fa-trash"></i> Supprimer
-                            </button>
-                        </td>
-                    </tr>
-                </tbody>
+                
+                <x-product-table :products="$drinkProducts" />
+               
             </table>
         </div>
     </main>

@@ -43,24 +43,9 @@
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Mojito Classique</td>
-                        <td>8</td>
-                        <td>
-                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
-                        </td>
-                    </tr>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Cocktail Fruité</td>
-                        <td>10</td>
-                        <td>
-                            <button class="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
-                        </td>
-                    </tr>
-                </tbody>
+
+                <x-product-table :products="$drinkProducts" />
+                
             </table>
         </div>
     </main>
