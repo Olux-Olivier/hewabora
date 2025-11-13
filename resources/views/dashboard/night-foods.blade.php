@@ -44,22 +44,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Brochette Hewa Bora</td>
-                        <td>14</td>
+                    @forelse ($foodProducts as $food)
+                       <tr class="hover:bg-white/10 transition">
+                        <td class="py-3">{{$food[0]->name}}</td>
+                        <td>{{$food[0]->price}}</td>
+                        <td>{{$food[0]->category}}</td>
                         <td>
-                            <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
+                            <a class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm mr-2" href="{{route('products.edit',  $food[0]->id)}}">Modifier</a>
                             <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
                         </td>
-                    </tr>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Burger Spécial Nuit</td>
-                        <td>13</td>
-                        <td>
-                            <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
-                        </td>
-                    </tr>
+                    </tr> 
+                    @empty
+                        
+                    @endforelse
+                    
                 </tbody>
             </table>
         </div>

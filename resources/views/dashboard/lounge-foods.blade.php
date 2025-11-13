@@ -42,26 +42,26 @@
                     <tr>
                         <th class="py-3">Nom</th>
                         <th class="py-3">Prix ($)</th>
+                        <th class="py-3">Categorie</th>
                         <th class="py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Salade Hewa Bora</td>
-                        <td>12</td>
+                    @forelse ($foodProducts as $food)
+                       <tr class="hover:bg-white/10 transition">
+                        <td class="py-3">{{$food[0]->name}}</td>
+                        <td>{{$food[0]->price}}</td>
+                        <td>{{$food[0]->category}}</td>
                         <td>
                             <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
                             <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
                         </td>
-                    </tr>
-                    <tr class="hover:bg-white/10 transition">
-                        <td class="py-3">Poulet Sauce Champignon</td>
-                        <td>15</td>
-                        <td>
-                            <button class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded-lg text-sm mr-2">Modifier</button>
-                            <button class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded-lg text-sm">Supprimer</button>
-                        </td>
-                    </tr>
+                    </tr> 
+                    @empty
+                        
+                    @endforelse
+                    
+                    
                 </tbody>
             </table>
         </div>

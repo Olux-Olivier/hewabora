@@ -31,26 +31,23 @@ Route::get('/form', function () {
 
 Route::post('/products', [ProductController::class, 'store'])->name('products.store');
 
+Route::put('/products/{product}',[ProductController::class, 'update'])->name('products.update');
 
-// DASHBOARD ROUTE
-// Tableau de bord principal
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
 Route::get('/dashboard', function () {
     return view('dashboard.home');
 })->name('dashboard.home');
 
 // Lounge
-Route::get('/dashboard/lounge/foods', function () {
-    return view('dashboard.lounge-foods');
-})->name('dashboard.lounge.foods');
+Route::get('/dashboard/lounge/foods', [ProductController::class, 'dashloungeFoods'])->name('dashboard.lounge.foods');
 
 Route::get('/dashboard/lounge/drinks', function () {
     return view('dashboard.lounge-drinks');
 })->name('dashboard.lounge.drinks');
 
 // Night
-Route::get('/dashboard/night/foods', function () {
-    return view('dashboard.night-foods');
-})->name('dashboard.night.foods');
+Route::get('/dashboard/night/foods', [ProductController::class, 'dashnightFoods'])->name('dashboard.night.foods');
 
 Route::get('/dashboard/night/drinks', function () {
     return view('dashboard.night-drinks');
