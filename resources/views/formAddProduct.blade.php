@@ -141,7 +141,7 @@
       ],
       food: ['Salades', 'Entrées', 'Soups', 'BBQ', 'Hamburgers', 'Pizza', 'Pain Plat', 'Shawarma',
         'Pain Sandwich', 'Plat Congolais', ' Pasta', 'Plat Principal', 'Fruits de Mer', ' Accompagnment',
-        'Sauce au choix', ' Desserts', ''
+        'Sauce au choix', ' Desserts', 'Night one', 'Night two'
       ]
     };
 
