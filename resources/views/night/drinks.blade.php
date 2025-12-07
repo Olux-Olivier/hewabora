@@ -153,8 +153,8 @@
       <div class="text-center md:text-left">
         <h4 class="text-yellow-400 font-semibold mb-2">Suivez-nous</h4>
         <div class="flex justify-center md:justify-start space-x-4 text-xl">
+          <a href="https://www.instagram.com/hewaboraloungebar/" class="hover:text-yellow-300 transition"><i class="fab fa-instagram"></i></a>
           <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-instagram"></i></a>
           <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-twitter"></i></a>
           <a href="#" class="hover:text-yellow-300 transition"><i class="fab fa-youtube"></i></a>
         </div>
