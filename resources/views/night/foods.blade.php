@@ -73,10 +73,18 @@
       Night Club — Menu Food
     </h1>
     <p class="text-gray-300 mb-6">Savourez nos plats exclusifs dans une ambiance nocturne raffinée ✨</p>
-    <a href="{{ route('lounge.foods') }}"
-       class="text-yellow-400 hover:text-white transition font-semibold">
-       Voir pour Lounge Bar
+   <a href="{{ route('lounge.foods') }}"
+    class="relative px-6 py-2 font-semibold text-yellow-400
+            border border-yellow-500/40 rounded-lg
+            transition duration-300 hover:text-black
+            overflow-hidden group">
+
+        <span class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-yellow-600
+                    opacity-0 group-hover:opacity-100 transition duration-300"></span>
+
+        <span class="relative">Lounge Bar</span>
     </a>
+
   </section>
 
   <!-- NAVIGATION -->
