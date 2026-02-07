@@ -59,7 +59,7 @@
       <h1 class="text-2xl font-bold bg-gradient-to-r from-yellow-400 via-yellow-500 to-white bg-clip-text text-transparent">
         Hewa Bora
       </h1>
-      <a href="{{ url('/menu') }}"
+      <a href="{{ url('/') }}"
          class="text-yellow-400 hover:text-white transition  text-lg">
          home
       </a>
