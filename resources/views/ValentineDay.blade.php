@@ -70,6 +70,19 @@
       font-size: 0.95rem;
       opacity: 0.9;
     }
+    .signature {
+      margin-top: 25px;
+      font-size: 0.85rem;
+      opacity: 0.85;
+    }
+    .signature strong {
+      color: #ffd700;
+    }
+    .copyright {
+      margin-top: 5px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
     .reservation {
       margin-top: 20px;
       font-size: 1.1rem;
@@ -118,10 +131,10 @@
 <body>
   <div class="container">
     <div style="margin-bottom:20px;">
-      <a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal / Autre menu</a>
+      <a href="#" class="top-button">Menu principal / Autre menu</a>
     </div>
     <h2>Hewa Bora<br/>Lounge Bar & Restaurant</h2>
-    <h1>ST VALENTINE</h1>
+    <h1>St VALENTINE</h1>
     <div class="price">111$ / Couple</div>
 
     <div class="menu">
@@ -161,6 +174,11 @@
       <div class="reservation">
         Réservation : <span>+243 9000 60024</span>
       </div>
+      <div class="signature">
+        <p>by <strong>Synergie UP</strong></p>
+        <p class="copyright">© 2026 Hewa Bora Lounge Bar & Restaurant</p>
+      </div>
+    </div>
     </div>
   </div>
 </body>
