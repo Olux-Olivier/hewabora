@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saint Valentin – Hewa Bora</title>
+  <title>St Valentine – Hewa Bora</title>
   <style>
     body {
       margin: 0;
@@ -121,7 +121,7 @@
       <a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal / Autre menu</a>
     </div>
     <h2>Hewa Bora<br/>Lounge Bar & Restaurant</h2>
-    <h1>ST VALENTIN</h1>
+    <h1>ST VALENTINE</h1>
     <div class="price">111$ / Couple</div>
 
     <div class="menu">
