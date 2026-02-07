@@ -131,7 +131,7 @@
 <body>
   <div class="container">
     <div style="margin-bottom:20px;">
-      <a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal / Autre menu</a>
+      <a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal</a>
     </div>
     <h2>Hewa Bora<br/>Lounge Bar & Restaurant</h2>
     <h1>St VALENTINE</h1>
