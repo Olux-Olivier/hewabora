@@ -1,185 +1,209 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>St Valentine – Hewa Bora</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: radial-gradient(circle at top, #8b0000, #2b0000);
-      color: #fff;
-      animation: fadeIn 1.2s ease-in-out;
-      display: flex;
-      justify-content: center;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
-      animation: slideUp 1.2s ease forwards;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>St Valentine – Hewa Bora</title>
 
-    h1 {
-      font-size: 3rem;
-      color: #ffd700;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
-    h2 {
-      font-size: 1.4rem;
-      margin-bottom: 30px;
-      font-weight: 300;
-    }
-    .price {
-      display: inline-block;
-      border: 2px solid #ffd700;
-      padding: 15px 30px;
-      border-radius: 8px;
-      font-size: 1.8rem;
-      color: #ffd700;
-      margin-bottom: 40px;
-    }
-    .menu {
-      background: rgba(0,0,0,0.45);
-      border-radius: 12px;
-      padding: 30px 20px;
-    }
-    .menu-section {
-      margin-bottom: 30px;
-      animation: fadeSection 0.8s ease forwards;
-    }
-    .menu-section h3 {
-      color: #ffd700;
-      font-size: 1.6rem;
-      margin-bottom: 10px;
-    }
-    .menu-section ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .menu-section li {
-      font-size: 1.05rem;
-      margin: 6px 0;
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-    .signature {
-      margin-top: 25px;
-      font-size: 0.85rem;
-      opacity: 0.85;
-    }
-    .signature strong {
-      color: #ffd700;
-    }
-    .copyright {
-      margin-top: 5px;
-      font-size: 0.8rem;
-      opacity: 0.8;
-    }
-    .reservation {
-      margin-top: 20px;
-      font-size: 1.1rem;
-    }
-    .reservation span {
-      color: #ffd700;
-      font-weight: bold;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      .price { font-size: 1.4rem; }
-    }
-  .top-button {
-      display: inline-block;
-      padding: 10px 22px;
-      border: 2px solid #ffd700;
-      border-radius: 30px;
-      color: #ffd700;
-      text-decoration: none;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-    }
-    .top-button:hover {
-      background: #ffd700;
-      color: #2b0000;
-    }
-  @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-    .menu-section:nth-child(1) { animation-delay: 0.2s; }
-    .menu-section:nth-child(2) { animation-delay: 0.4s; }
-    .menu-section:nth-child(3) { animation-delay: 0.6s; }
-    .menu-section:nth-child(4) { animation-delay: 0.8s; }
-    @keyframes fadeSection {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+<style>
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  /* IMAGE DE FOND SAINT VALENTIN */
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(139,0,0,0.75)),
+    url('https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=1600&q=80');
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.container {
+  max-width: 900px;
+  width: 100%;
+  padding: 40px 20px;
+  text-align: center;
+  animation: slideUp 1.2s ease forwards;
+  backdrop-filter: blur(6px);
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.3rem;
+  color: #ffd700;
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.7rem;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+
+.price {
+  font-family: 'Playfair Display', serif;
+  display: inline-block;
+  border: 2px solid #ffd700;
+  padding: 18px 35px;
+  border-radius: 10px;
+  font-size: 2rem;
+  color: #ffd700;
+  margin-bottom: 40px;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.4);
+}
+
+.menu {
+  background: rgba(0,0,0,0.55);
+  border-radius: 15px;
+  padding: 35px 25px;
+}
+
+.menu-section {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.menu-section h3 {
+  font-family: 'Playfair Display', serif;
+  color: #ffd700;
+  font-size: 1.7rem;
+  margin-bottom: 15px;
+}
+
+.menu-section ul {
+  list-style: disc;
+  list-style-position: inside;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.menu-section li {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  margin: 8px 0;
+  font-style: italic;
+}
+
+.footer {
+  margin-top: 40px;
+}
+
+.reservation span {
+  color: #ffd700;
+  font-weight: 500;
+}
+
+.signature strong {
+  color: #ffd700;
+  font-family: 'Playfair Display', serif;
+}
+
+.top-button {
+  display: inline-block;
+  padding: 10px 22px;
+  border: 2px solid #ffd700;
+  border-radius: 30px;
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,0.4);
+}
+
+.top-button:hover {
+  background: #ffd700;
+  color: #2b0000;
+}
+
+@media (max-width: 600px) {
+  h1 { font-size: 2.3rem; }
+  .price { font-size: 1.6rem; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+</style>
 </head>
+
 <body>
-  <div class="container">
-    <div style="margin-bottom:20px;">
-      <a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal</a>
-    </div>
-    <h2>Hewa Bora<br/>Lounge Bar & Restaurant</h2>
-    <h1>St VALENTINE</h1>
-    <div class="price">111$ / Couple</div>
+<div class="container">
 
-    <div class="menu">
-      <div class="menu-section">
-        <h3>Apéritif au choix</h3>
-        <ul>
-          <li>Vin rouge ou vin blanc</li>
-          <li>Champagne</li>
-        </ul>
-      </div>
+<a href="{{ url('/lounge/foods') }}" class="top-button">Menu principal</a>
 
-      <div class="menu-section">
-        <h3>Entrée</h3>
-        <ul>
-          <li>Saucisse chipolatas</li>
-        </ul>
-      </div>
+<h2>Hewa Bora<br/>Lounge Bar & Restaurant</h2>
+<h1>St Valentine</h1>
 
-      <div class="menu-section">
-        <h3>Plat principal au choix</h3>
-        <ul>
-          <li>Filet mignon au poivre vert avec sa couronne de salade</li>
-          <li>Cordon bleu de volaille à la sauce vermouth</li>
-        </ul>
-      </div>
+<div class="price">111$ / Couple</div>
 
-      <div class="menu-section">
-        <h3>Dessert au choix</h3>
-        <ul>
-          <li>Red Lovers Panacotta</li>
-        </ul>
-      </div>
-    </div>
+<div class="menu">
 
-    <div class="footer">
-      <p>📍 3ᵉ niveau, Bâtiment Hypnose<br/>Réf : Ex La Terrasse</p>
-      <div class="reservation">
-        Réservation : <span>+243 9000 60024</span>
-      </div>
-      <div class="signature">
-        <p>by <strong>Synergie UP</strong></p>
-        <p class="copyright">© 2026 Hewa Bora Lounge Bar & Restaurant</p>
-      </div>
-    </div>
-    </div>
-  </div>
+<div class="menu-section">
+<h3>Apéritif au choix</h3>
+<ul>
+<li>Vin rouge</li>
+<li>Vin blanc</li>
+<li>Champagne</li>
+</ul>
+</div>
+
+<div class="menu-section">
+<h3>Entrée</h3>
+<ul>
+<li>Saucisse chipolatas</li>
+</ul>
+</div>
+
+<div class="menu-section">
+<h3>Plat principal au choix</h3>
+<ul>
+<li>Filet mignon au poivre vert avec sa couronne de salade</li>
+<li>Cordon bleu de volaille à la sauce vermouth</li>
+</ul>
+</div>
+
+<div class="menu-section">
+<h3>Dessert au choix</h3>
+<ul>
+<li>Red Lovers Panacotta</li>
+</ul>
+</div>
+
+</div>
+
+<div class="footer">
+<p>📍 3ᵉ niveau, Bâtiment Hypnose<br/>Réf : Ex La Terrasse</p>
+<p class="reservation">Réservation : <span>+243 9000 60024</span></p>
+<p>by <strong>Synergie UP</strong></p>
+<p>© 2026 Hewa Bora Lounge Bar & Restaurant</p>
+</div>
+
+</div>
 </body>
 </html>
