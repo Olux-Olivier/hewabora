@@ -5,8 +5,13 @@ use App\Http\Controllers\QrController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('ValentineDay');
+    return view('offresA');
 });
+
+Route::get('/offres', function () {
+    return view('offresA');
+});
+
 
 Route::get('/menu', function () {
     return view('menu');
