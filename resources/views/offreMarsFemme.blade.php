@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+
 <meta charset="UTF-8">
 <title>Menu Special - Journée de la Femme</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +14,21 @@
 
 body{
 font-family:'Poppins',sans-serif;
+opacity:0;
+transform:translateY(20px);
+transition:1s ease;
+}
+
+body.loaded{
+opacity:1;
+transform:translateY(0);
 }
 
 .brand{
 font-family:'Playfair Display',serif;
 }
 
-/* Animation entrée */
+/* animation apparition */
 
 .fade{
 opacity:0;
@@ -67,7 +76,29 @@ box-shadow:0 15px 35px rgba(0,0,0,0.5);
 
 <body class="text-white">
 
-<!-- background -->
+
+<!-- LOADER -->
+
+<div id="loader" class="fixed inset-0 bg-black flex items-center justify-center z-50">
+
+<div class="text-center">
+
+<div class="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+
+<h1 class="text-yellow-400 text-3xl font-bold tracking-widest">
+HEWA BORA
+</h1>
+
+<p class="text-gray-400 text-sm mt-2">
+Lounge Bar & Restaurant
+</p>
+
+</div>
+
+</div>
+
+
+<!-- BACKGROUND -->
 
 <div class="fixed inset-0 -z-10 bg-cover bg-center"
 style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80');">
@@ -117,12 +148,12 @@ JOURNÉE DE LA FEMME
 
 
 
-<!-- GRID MENU -->
+<!-- MENU -->
 
 <div class="grid md:grid-cols-2 gap-12 text-lg">
 
 
-<!-- COL 1 -->
+<!-- COLONNE 1 -->
 
 <div class="space-y-10 fade">
 
@@ -170,7 +201,7 @@ SALADE
 
 
 
-<!-- COL 2 -->
+<!-- COLONNE 2 -->
 
 <div class="space-y-10 fade">
 
@@ -223,7 +254,7 @@ DESSERT
 
 
 
-<!-- BADGES PRIX -->
+<!-- PRIX -->
 
 <div class="price-badge bg-yellow-400 text-black top-48">
 Adulte<br>
@@ -262,15 +293,13 @@ Réservation
 3ᵉ NIVEAU BÂTIMENT HYPNOSE
 </p>
 
-
 <a href="{{ url('/lounge/foods') }}"
 class="inline-block mt-8 px-10 py-3 bg-yellow-400 text-black rounded-full hover:scale-105 transition">
 Voir le menu complet
 </a>
 
-
 <div class="mt-6 text-xs text-gray-500">
-© {{ date('Y') }} Synergie UP. Tous droits réservés.
+© {{ date('Y') }} Synergie UP
 </div>
 
 </div>
@@ -278,6 +307,28 @@ Voir le menu complet
 </div>
 
 </div>
+
+
+
+<script>
+
+window.addEventListener("load",function(){
+
+const loader=document.getElementById("loader")
+
+loader.style.opacity="0"
+
+setTimeout(()=>{
+
+loader.style.display="none"
+document.body.classList.add("loaded")
+
+},500)
+
+})
+
+</script>
+
 
 </body>
 </html>
