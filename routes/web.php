@@ -5,7 +5,11 @@ use App\Http\Controllers\QrController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('offreMarsFemme');
+    return view('hb-opening');
+});
+
+Route::get('/hb-opening', function () {
+    return view('hb-opening');
 });
 
 Route::get('/offres', function () {
