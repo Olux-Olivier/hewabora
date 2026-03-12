@@ -52,7 +52,8 @@ body{
     border:1px solid red;
     padding:20px;
     border-radius:10px;
-    width:120px;
+    width:100px;
+    text-align: center;
 }
 
 .timer-number{
@@ -69,6 +70,18 @@ body{
     color:red;
     text-shadow:0 0 25px red;
     animation: glowPulse 2s infinite alternate;
+}
+
+/* ----- Responsive mobile ----- */
+@media (max-width: 768px) {
+    .timer-box{
+        width:70px;
+        padding:15px;
+        border-radius:8px;
+    }
+    .timer-number{
+        font-size:30px;
+    }
 }
 
 </style>
@@ -92,27 +105,27 @@ R-BACK • DJ BOMB'H • DJ NZINZI • TASHIRO
 </p>
 
 <!-- compteur -->
-<div id="countdown" class="flex justify-center gap-4 flex-wrap">
+<div id="countdown" class="flex justify-center gap-2 flex-nowrap">
 
-<div class="timer-box">
-    <div id="days" class="timer-number">00</div>
-    <div>JOURS</div>
-</div>
+    <div class="timer-box" id="daysBox">
+        <div id="days" class="timer-number">00</div>
+        <div>JOURS</div>
+    </div>
 
-<div class="timer-box">
-    <div id="hours" class="timer-number">00</div>
-    <div>HEURES</div>
-</div>
+    <div class="timer-box">
+        <div id="hours" class="timer-number">00</div>
+        <div>HRS</div>
+    </div>
 
-<div class="timer-box">
-    <div id="minutes" class="timer-number">00</div>
-    <div>MIN</div>
-</div>
+    <div class="timer-box">
+        <div id="minutes" class="timer-number">00</div>
+        <div>MIN</div>
+    </div>
 
-<div class="timer-box">
-    <div id="seconds" class="timer-number">00</div>
-    <div>SEC</div>
-</div>
+    <div class="timer-box">
+        <div id="seconds" class="timer-number">00</div>
+        <div>SEC</div>
+    </div>
 
 </div>
 
@@ -151,14 +164,12 @@ Menu
 
 <script>
 
+// Date cible : aujourd’hui à 21h
 let now = new Date();
-
 let target = new Date();
-target.setDate(now.getDate()+1);
-target.setHours(21,0,0,0);
+target.setHours(21,0,0,0); // aujourd’hui à 21h
 
 function updateTimer(){
-
     let now = new Date();
     let diff = target - now;
 
@@ -173,11 +184,18 @@ function updateTimer(){
     let minutes = Math.floor((diff%(1000*60*60))/(1000*60));
     let seconds = Math.floor((diff%(1000*60))/1000);
 
-    document.getElementById("days").innerText = days;
-    document.getElementById("hours").innerText = hours;
-    document.getElementById("minutes").innerText = minutes;
-    document.getElementById("seconds").innerText = seconds;
+    // cacher le bloc JOURS si days = 0
+    let daysBox = document.getElementById("daysBox");
+    if(days === 0){
+        daysBox.style.display = "none";
+    } else {
+        daysBox.style.display = "block";
+        document.getElementById("days").innerText = days;
+    }
 
+    document.getElementById("hours").innerText = hours.toString().padStart(2,'0');
+    document.getElementById("minutes").innerText = minutes.toString().padStart(2,'0');
+    document.getElementById("seconds").innerText = seconds.toString().padStart(2,'0');
 }
 
 updateTimer();
