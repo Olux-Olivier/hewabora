@@ -11,65 +11,64 @@
 <style>
 
 body{
-background: #000;
-color:white;
-font-family: Arial, Helvetica, sans-serif;
+    background: #000; /* fond noir */
+    color:white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .overlay{
-background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.75);
 }
 
 .page-load{
-animation: pageLoad 1.5s ease-out;
+    animation: pageLoad 1.5s ease-out;
 }
 
 @keyframes pageLoad{
-0%{opacity:0; transform: translateY(30px) scale(0.95);}
-100%{opacity:1; transform: translateY(0) scale(1);}
+    0%{opacity:0; transform: translateY(30px) scale(0.95);}
+    100%{opacity:1; transform: translateY(0) scale(1);}
 }
 
 .title{
-font-size:60px;
-color:red;
-font-weight:bold;
-text-shadow:0 0 20px red;
-animation: glowPulse 2s infinite alternate;
+    font-size:60px;
+    color:red;
+    font-weight:bold;
+    text-shadow:0 0 20px red;
+    animation: glowPulse 2s infinite alternate;
 }
 
 @keyframes glowPulse{
-from{ text-shadow:0 0 10px red,0 0 20px red;}
-to{ text-shadow:0 0 30px red,0 0 60px red;}
+    from{ text-shadow:0 0 10px red,0 0 20px red;}
+    to{ text-shadow:0 0 30px red,0 0 60px red;}
 }
 
 .subtitle{
-font-size:26px;
-letter-spacing:3px;
+    font-size:26px;
+    letter-spacing:3px;
 }
 
 .timer-box{
-background:#111;
-border:1px solid red;
-padding:20px;
-border-radius:10px;
-width:120px;
+    background:#111;
+    border:1px solid red;
+    padding:20px;
+    border-radius:10px;
+    width:120px;
 }
 
 .timer-number{
-font-size:40px;
-color:red;
-font-weight:bold;
+    font-size:40px;
+    color:red;
+    font-weight:bold;
 }
 
 /* message ouverture */
-
 .open-message{
-display:none;
-font-size:45px;
-font-weight:bold;
-color:red;
-text-shadow:0 0 25px red;
-animation: glowPulse 2s infinite alternate;
+    display:none;
+    font-size:45px;
+    font-weight:bold;
+    color:red;
+    text-shadow:0 0 25px red;
+    animation: glowPulse 2s infinite alternate;
 }
 
 </style>
@@ -78,9 +77,9 @@ animation: glowPulse 2s infinite alternate;
 
 <body>
 
-<div class="overlay min-h-screen flex items-center justify-center">
+<div class="overlay min-h-screen flex items-start justify-center py-10 px-4 md:items-center md:py-20">
 
-<div class="text-center px-4 page-load">
+<div class="text-center page-load max-w-xl">
 
 <h1 class="subtitle mb-2">HB CLUB</h1>
 
@@ -93,33 +92,31 @@ R-BACK • DJ BOMB'H • DJ NZINZI • TASHIRO
 </p>
 
 <!-- compteur -->
-
 <div id="countdown" class="flex justify-center gap-4 flex-wrap">
 
 <div class="timer-box">
-<div id="days" class="timer-number">00</div>
-<div>JOURS</div>
+    <div id="days" class="timer-number">00</div>
+    <div>JOURS</div>
 </div>
 
 <div class="timer-box">
-<div id="hours" class="timer-number">00</div>
-<div>HEURES</div>
+    <div id="hours" class="timer-number">00</div>
+    <div>HEURES</div>
 </div>
 
 <div class="timer-box">
-<div id="minutes" class="timer-number">00</div>
-<div>MIN</div>
+    <div id="minutes" class="timer-number">00</div>
+    <div>MIN</div>
 </div>
 
 <div class="timer-box">
-<div id="seconds" class="timer-number">00</div>
-<div>SEC</div>
+    <div id="seconds" class="timer-number">00</div>
+    <div>SEC</div>
 </div>
 
 </div>
 
 <!-- message ouverture -->
-
 <div id="openMessage" class="open-message mt-10">
 WELCOME TO HB CLUB <br>
 THE PARTY HAS STARTED 🔥
@@ -162,26 +159,24 @@ target.setHours(21,0,0,0);
 
 function updateTimer(){
 
-let now = new Date();
-let diff = target - now;
+    let now = new Date();
+    let diff = target - now;
 
-if(diff <= 0){
+    if(diff <= 0){
+        document.getElementById("countdown").style.display="none";
+        document.getElementById("openMessage").style.display="block";
+        return;
+    }
 
-document.getElementById("countdown").style.display="none";
-document.getElementById("openMessage").style.display="block";
+    let days = Math.floor(diff/(1000*60*60*24));
+    let hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    let minutes = Math.floor((diff%(1000*60*60))/(1000*60));
+    let seconds = Math.floor((diff%(1000*60))/1000);
 
-return;
-}
-
-let days = Math.floor(diff/(1000*60*60*24));
-let hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-let minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-let seconds = Math.floor((diff%(1000*60))/1000);
-
-document.getElementById("days").innerText = days;
-document.getElementById("hours").innerText = hours;
-document.getElementById("minutes").innerText = minutes;
-document.getElementById("seconds").innerText = seconds;
+    document.getElementById("days").innerText = days;
+    document.getElementById("hours").innerText = hours;
+    document.getElementById("minutes").innerText = minutes;
+    document.getElementById("seconds").innerText = seconds;
 
 }
 
