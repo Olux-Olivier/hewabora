@@ -4,84 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HB Club - Grand Opening</title>
+<title>HB Club - Lubumbashi Night Experience</title>
 
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
 
 body{
-    background: #000; /* fond noir */
+    background:#000;
     color:white;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
+/* overlay */
 .overlay{
-    background: rgba(0,0,0,0.75);
+    background:rgba(0,0,0,0.8);
 }
 
+/* animation chargement */
 .page-load{
-    animation: pageLoad 1.5s ease-out;
+    animation:fadeUp 1.5s ease-out;
 }
 
-@keyframes pageLoad{
-    0%{opacity:0; transform: translateY(30px) scale(0.95);}
-    100%{opacity:1; transform: translateY(0) scale(1);}
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
+/* titre neon */
 .title{
     font-size:60px;
     color:red;
     font-weight:bold;
-    text-shadow:0 0 20px red;
-    animation: glowPulse 2s infinite alternate;
+    text-shadow:0 0 15px red;
+    animation:neon 2s infinite alternate;
 }
 
-@keyframes glowPulse{
-    from{ text-shadow:0 0 10px red,0 0 20px red;}
-    to{ text-shadow:0 0 30px red,0 0 60px red;}
+@keyframes neon{
+    from{
+        text-shadow:0 0 10px red,0 0 20px red;
+    }
+    to{
+        text-shadow:0 0 30px red,0 0 60px red;
+    }
 }
 
-.subtitle{
-    font-size:26px;
-    letter-spacing:3px;
+/* badge open */
+.open-badge{
+    background:red;
+    padding:6px 16px;
+    border-radius:20px;
+    font-weight:bold;
+    letter-spacing:2px;
+    animation:pulse 1.5s infinite;
 }
 
-.timer-box{
+@keyframes pulse{
+    0%{opacity:0.7;}
+    50%{opacity:1;}
+    100%{opacity:0.7;}
+}
+
+/* cartes soirées */
+.event-card{
     background:#111;
     border:1px solid red;
+    border-radius:12px;
     padding:20px;
-    border-radius:10px;
-    width:100px;
-    text-align: center;
+    transition:0.3s;
 }
 
-.timer-number{
-    font-size:40px;
-    color:red;
-    font-weight:bold;
+.event-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 20px red;
 }
 
-/* message ouverture */
-.open-message{
-    display:none;
-    font-size:45px;
-    font-weight:bold;
-    color:red;
-    text-shadow:0 0 25px red;
-    animation: glowPulse 2s infinite alternate;
+/* responsive */
+@media(max-width:768px){
+
+.title{
+    font-size:42px;
 }
 
-/* ----- Responsive mobile ----- */
-@media (max-width: 768px) {
-    .timer-box{
-        width:70px;
-        padding:15px;
-        border-radius:8px;
-    }
-    .timer-number{
-        font-size:30px;
-    }
 }
 
 </style>
@@ -90,118 +100,109 @@ body{
 
 <body>
 
-<div class="overlay min-h-screen flex items-start justify-center py-10 px-4 md:items-center md:py-20">
+<div class="overlay min-h-screen flex items-center justify-center py-12 px-6">
 
-<div class="text-center page-load max-w-xl">
+<div class="text-center page-load max-w-3xl">
 
-<h1 class="subtitle mb-2">HB CLUB</h1>
-
-<h2 class="title mb-8">
-GRAND OPENING
+<h2 class="text-gray-400 tracking-widest mb-2">
+HB CLUB
 </h2>
 
-<p class="mb-10 text-gray-300">
-R-BACK • DJ BOMB'H • DJ NZINZI • TASHIRO
-</p>
+<h1 class="title mb-4">
+LUBUMBASHI NIGHT EXPERIENCE
+</h1>
 
-<!-- compteur -->
-<div id="countdown" class="flex justify-center gap-2 flex-nowrap">
-
-    <div class="timer-box" id="daysBox">
-        <div id="days" class="timer-number">00</div>
-        <div>JOURS</div>
-    </div>
-
-    <div class="timer-box">
-        <div id="hours" class="timer-number">00</div>
-        <div>HRS</div>
-    </div>
-
-    <div class="timer-box">
-        <div id="minutes" class="timer-number">00</div>
-        <div>MIN</div>
-    </div>
-
-    <div class="timer-box">
-        <div id="seconds" class="timer-number">00</div>
-        <div>SEC</div>
-    </div>
-
+<div class="flex justify-center mb-6">
+<span class="open-badge">
+OPEN NOW 🔥
+</span>
 </div>
 
-<!-- message ouverture -->
-<div id="openMessage" class="open-message mt-10">
-WELCOME TO HB CLUB <br>
-THE PARTY HAS STARTED 🔥
-</div>
-
-<p class="mt-8 text-lg text-red-400 font-semibold">
-Ouverture officielle à 21h00
+<p class="text-gray-300 mb-10">
+DJ • Lounge • Cocktails • Dancefloor
 </p>
+
+<!-- boutons -->
+<div class="flex flex-wrap justify-center gap-4 mb-12">
 
 <a href="{{ url('/lounge/foods') }}"
-class="inline-block mt-6 px-8 py-3 border-2 border-yellow-400 text-yellow-400 rounded-full
-hover:bg-yellow-400 hover:text-black transition duration-300 shadow-lg">
-Menu
+class="px-8 py-3 border-2 border-yellow-400 text-yellow-400 rounded-full
+hover:bg-yellow-400 hover:text-black transition shadow-lg">
+
+Voir le Menu
+
 </a>
 
-<p class="mt-10 text-gray-400">
-3ᵉ Niveau Bâtiment Hypnose<br>
+<a href="https://wa.me/243990867502"
+class="px-8 py-3 border-2 border-green-500 text-green-400 rounded-full
+hover:bg-green-500 hover:text-black transition shadow-lg">
+
+Réserver une table
+
+</a>
+
+</div>
+
+<!-- section soirées -->
+<h2 class="text-2xl font-bold mb-6 text-red-400">
+Les soirées HB CLUB
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6 mb-14">
+
+<div class="event-card">
+<h3 class="text-lg font-bold text-red-400 mb-2">
+FRIDAY
+</h3>
+<p class="text-gray-300">
+Afro Night<br>
+Afrobeats • Amapiano
+</p>
+</div>
+
+<div class="event-card">
+<h3 class="text-lg font-bold text-red-400 mb-2">
+SATURDAY
+</h3>
+<p class="text-gray-300">
+Urban Party<br>
+Hip Hop • Dancehall
+</p>
+</div>
+
+<div class="event-card">
+<h3 class="text-lg font-bold text-red-400 mb-2">
+SUNDAY
+</h3>
+<p class="text-gray-300">
+Chill Lounge<br>
+Cocktails • Good vibes
+</p>
+</div>
+
+</div>
+
+<!-- adresse -->
+
+<p class="text-gray-400 mb-2">
+3ᵉ Niveau Bâtiment Hypnose
+</p>
+
+<p class="text-gray-400 mb-2">
 826 Av Mama Yemo, Lubumbashi
 </p>
 
-<p class="mt-6 text-gray-500">
+<p class="text-gray-500 mb-6">
 0990867502 • 0992499384
 </p>
 
-<p class="mt-10 text-gray-600 text-sm">
+<p class="text-gray-600 text-sm">
 © {{ date('Y') }} Synergie UP. Tous droits réservés.
 </p>
 
 </div>
 
 </div>
-
-<script>
-
-// Date cible : aujourd’hui à 21h
-let now = new Date();
-let target = new Date();
-target.setHours(21,0,0,0); // aujourd’hui à 21h
-
-function updateTimer(){
-    let now = new Date();
-    let diff = target - now;
-
-    if(diff <= 0){
-        document.getElementById("countdown").style.display="none";
-        document.getElementById("openMessage").style.display="block";
-        return;
-    }
-
-    let days = Math.floor(diff/(1000*60*60*24));
-    let hours = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
-    let minutes = Math.floor((diff%(1000*60*60))/(1000*60));
-    let seconds = Math.floor((diff%(1000*60))/1000);
-
-    // cacher le bloc JOURS si days = 0
-    let daysBox = document.getElementById("daysBox");
-    if(days === 0){
-        daysBox.style.display = "none";
-    } else {
-        daysBox.style.display = "block";
-        document.getElementById("days").innerText = days;
-    }
-
-    document.getElementById("hours").innerText = hours.toString().padStart(2,'0');
-    document.getElementById("minutes").innerText = minutes.toString().padStart(2,'0');
-    document.getElementById("seconds").innerText = seconds.toString().padStart(2,'0');
-}
-
-updateTimer();
-setInterval(updateTimer,1000);
-
-</script>
 
 </body>
 </html>
