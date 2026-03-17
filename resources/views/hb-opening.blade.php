@@ -18,12 +18,12 @@ body{
 
 /* overlay */
 .overlay{
-    background:rgba(0,0,0,0.8);
+    background:rgba(0,0,0,0.85);
 }
 
 /* animation chargement */
 .page-load{
-    animation:fadeUp 1.5s ease-out;
+    animation:fadeUp 1.4s ease-out;
 }
 
 @keyframes fadeUp{
@@ -58,7 +58,7 @@ body{
 /* badge open */
 .open-badge{
     background:red;
-    padding:6px 16px;
+    padding:6px 18px;
     border-radius:20px;
     font-weight:bold;
     letter-spacing:2px;
@@ -76,13 +76,23 @@ body{
     background:#111;
     border:1px solid red;
     border-radius:12px;
-    padding:20px;
+    padding:22px;
     transition:0.3s;
 }
 
 .event-card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-6px);
     box-shadow:0 0 20px red;
+}
+
+/* carte horaires */
+.schedule-card{
+    background:#0f0f0f;
+    border:1px solid red;
+    border-radius:14px;
+    padding:24px;
+    margin-bottom:40px;
+    box-shadow:0 0 15px rgba(255,0,0,0.3);
 }
 
 /* responsive */
@@ -112,7 +122,7 @@ HB CLUB
 LUBUMBASHI NIGHT EXPERIENCE
 </h1>
 
-<div class="flex justify-center mb-6">
+<div class="flex justify-center mb-4">
 <span class="open-badge">
 OPEN NOW 🔥
 </span>
@@ -123,6 +133,7 @@ DJ • Lounge • Cocktails • Dancefloor
 </p>
 
 <!-- boutons -->
+
 <div class="flex flex-wrap justify-center gap-4 mb-12">
 
 <a href="{{ url('/lounge/foods') }}"
@@ -143,15 +154,28 @@ Réserver une table
 
 </div>
 
-<!-- section soirées -->
-<h2 class="text-2xl font-bold mb-6 text-red-400">
-Les soirées HB CLUB
+<!-- horaires -->
+
+<div class="schedule-card">
+
+<h2 class="text-2xl font-bold text-red-400 mb-6">
+⏰ Horaires & Soirées
 </h2>
 
-<div class="grid md:grid-cols-3 gap-6 mb-14">
+<div class="grid md:grid-cols-3 gap-6">
 
-<div class="event-card">
-<h3 class="text-lg font-bold text-red-400 mb-2">
+<div>
+<h3 class="text-red-400 font-bold text-lg">
+THURSDAY
+</h3>
+<p class="text-gray-300">
+Lounge Night<br>
+Cocktails • Chill vibes
+</p>
+</div>
+
+<div>
+<h3 class="text-red-400 font-bold text-lg">
 FRIDAY
 </h3>
 <p class="text-gray-300">
@@ -160,8 +184,8 @@ Afrobeats • Amapiano
 </p>
 </div>
 
-<div class="event-card">
-<h3 class="text-lg font-bold text-red-400 mb-2">
+<div>
+<h3 class="text-red-400 font-bold text-lg">
 SATURDAY
 </h3>
 <p class="text-gray-300">
@@ -170,15 +194,11 @@ Hip Hop • Dancehall
 </p>
 </div>
 
-<div class="event-card">
-<h3 class="text-lg font-bold text-red-400 mb-2">
-SUNDAY
-</h3>
-<p class="text-gray-300">
-Chill Lounge<br>
-Cocktails • Good vibes
-</p>
 </div>
+
+<p class="text-yellow-400 font-bold text-xl mt-6">
+Ouverture à partir de 21H
+</p>
 
 </div>
 
