@@ -5,7 +5,7 @@ use App\Http\Controllers\QrController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('hb-opening');
+    return view('offresA');
 });
 
 Route::get('/hb-opening', function () {
