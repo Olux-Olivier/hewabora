@@ -5,9 +5,12 @@ use App\Http\Controllers\QrController;
 use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
-    return view('offresA');
+    return view('socials');
 });
 
+Route::get('/socials', function () {
+    return view('socials');
+});
 Route::get('/hb-opening', function () {
     return view('hb-opening');
 });
