@@ -2,162 +2,315 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Offres de la semaine</title>
+    <title>Offres de la semaine - Hewabora</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Tailwind CDN -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        body {
+        body{
             font-family: 'Poppins', sans-serif;
         }
-        .brand-font {
+
+        .brand-font{
             font-family: 'Playfair Display', serif;
         }
 
-        /* Animation fade + slide */
-        .fade-slide {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeSlideIn 0.8s forwards;
+        /* Background */
+        .bg-overlay{
+            background:
+                linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.82)),
+                url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
-        @keyframes fadeSlideIn {
-            to {
+        /* Glass */
+        .glass{
+            background: rgba(255,255,255,0.06);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        /* Animation */
+        .fade-up{
+            opacity: 0;
+            transform: translateY(25px);
+            animation: fadeUp .8s forwards;
+        }
+
+        @keyframes fadeUp{
+            to{
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Délais progressifs pour staggered effect */
-        .fade-slide-delay-1 { animation-delay: 0.2s; }
-        .fade-slide-delay-2 { animation-delay: 0.4s; }
-        .fade-slide-delay-3 { animation-delay: 0.6s; }
-        .fade-slide-delay-4 { animation-delay: 0.8s; }
-        .fade-slide-delay-5 { animation-delay: 1s; }
-        .fade-slide-delay-6 { animation-delay: 1.2s; }
-        .fade-slide-delay-7 { animation-delay: 1.4s; }
-        .fade-slide-delay-8 { animation-delay: 1.6s; }
+        .delay-1{ animation-delay: .2s; }
+        .delay-2{ animation-delay: .4s; }
+        .delay-3{ animation-delay: .6s; }
+        .delay-4{ animation-delay: .8s; }
+
+        /* Offer Card */
+        .offer-card{
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .offer-card:hover{
+            transform: translateY(-4px);
+            background: rgba(255,255,255,0.07);
+        }
     </style>
 </head>
 
-<body class="relative text-white">
+<body class="bg-overlay text-white min-h-screen">
 
-<!-- IMAGE DE FOND EN LIGNE -->
-<div class="fixed inset-0 -z-10 bg-cover bg-center"
-     style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80');">
-</div>
+<div class="px-4 py-12">
 
-<div class="fixed inset-0 bg-black/70 -z-10"></div>
+    <div class="max-w-6xl mx-auto">
 
-<div class="min-h-screen flex items-center justify-center px-4 py-12">
+        <!-- HEADER -->
+        <div class="text-center mb-14 fade-up delay-1">
 
-    <!-- CARTE EFFET GLACE -->
-    <div class="w-full max-w-4xl backdrop-blur-lg bg-white/10 border border-white/20 rounded-3xl shadow-2xl p-8 md:p-12 fade-slide fade-slide-delay-1">
-
-        <!-- MARQUE -->
-        <div class="text-center mb-10 fade-slide fade-slide-delay-2">
-            <h1 class="brand-font text-4xl md:text-5xl text-yellow-400 tracking-wide drop-shadow-lg">
+            <h1 class="brand-font text-5xl md:text-6xl text-yellow-400 drop-shadow-lg">
                 Hewabora
             </h1>
-            <p class="text-gray-200 text-sm mt-2 tracking-widest uppercase">
-                Lounge Bar et Restaurant
+
+            <p class="text-gray-300 tracking-[4px] uppercase mt-4 text-sm md:text-base">
+                Lounge Bar • Restaurant • Night Club
             </p>
 
-            <p class="mt-8">
+            <!-- Bouton -->
+            <div class="mt-8">
+
                 <a href="{{ url('/lounge/foods') }}"
-                class="text-sm px-4 py-1 border border-white/30 rounded-full
-                        hover:border-yellow-400 hover:text-yellow-300
-                        transition-all duration-300">
-                    Menu principal
+                   class="inline-flex items-center gap-3 px-7 py-3 rounded-full
+                          bg-white/10 border border-white/20 backdrop-blur-md
+                          hover:bg-yellow-400 hover:text-black
+                          transition-all duration-300">
+
+                    <span class="tracking-wide">
+                        Nos Menus
+                    </span>
+
+                    <span>
+                        →
+                    </span>
+
                 </a>
-            </p>
+
+            </div>
+
         </div>
 
-        <!-- TITRE -->
-        <div class="text-center mb-10 fade-slide fade-slide-delay-3">
-            <h2 class="brand-font text-3xl md:text-4xl border border-yellow-400 px-8 py-3 rounded-full inline-block tracking-wide">
+        <!-- TITLE -->
+        <div class="text-center mb-12 fade-up delay-2">
+
+            <h2 class="brand-font text-3xl md:text-4xl inline-block border border-yellow-400 px-8 py-3 rounded-full">
                 OFFRES DE LA SEMAINE
             </h2>
+
         </div>
 
-        <!-- OFFRES -->
-        <div class="space-y-8 text-lg fade-slide fade-slide-delay-4">
+        <!-- OFFERS -->
+        <div class="grid md:grid-cols-3 gap-8">
 
-            <div class="flex justify-between items-center border-b border-white/20 pb-4 fade-slide fade-slide-delay-5">
-                <div>
-                    <h3 class="text-yellow-400 text-xl font-semibold">Lundi</h3>
-                    <p>Burger + 1 grande bière</p>
+            <!-- LUNDI -->
+            <div class="glass rounded-3xl p-8 shadow-2xl transition duration-300 offer-card fade-up delay-2">
+
+                <div class="mb-6">
+                    <span class="text-yellow-400 tracking-[3px] uppercase text-sm">
+                        Chaque Lundi
+                    </span>
+
+                    <h3 class="text-4xl font-bold mt-2">
+                        AFTER WORK
+                    </h3>
                 </div>
-                <span class="text-2xl font-bold">15$</span>
-            </div>
 
-            <div class="flex justify-between items-center border-b border-white/20 pb-4 fade-slide fade-slide-delay-6">
-                <div>
-                    <h3 class="text-yellow-400 text-xl font-semibold">Mardi</h3>
-                    <p>Pizza (Margherita/Regina)</p>
-                    <p>+ 6 petites bières</p>
+                <div class="space-y-5 text-gray-200">
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            5 bières
+                        </p>
+
+                        <span class="text-yellow-400 text-2xl font-bold">
+                            10$
+                        </span>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            2 Shawarma
+                        </p>
+
+                        <span class="text-yellow-400 text-2xl font-bold">
+                            10$
+                        </span>
+                    </div>
+
+                    <div class="pt-2 text-sm text-gray-400">
+                        Hype Music : DJ RM • DJ Kiss
+                    </div>
+
                 </div>
-                <span class="text-2xl font-bold">25$</span>
+
             </div>
 
-            <div class="flex justify-between items-center border-b border-white/20 pb-4 fade-slide fade-slide-delay-7">
-                <div>
-                    <h3 class="text-yellow-400 text-xl font-semibold">Mercredi</h3>
-                    <p>Soirée Dames</p>
+            <!-- MARDI -->
+            <div class="glass rounded-3xl p-8 shadow-2xl transition duration-300 offer-card fade-up delay-3">
+
+                <div class="mb-6">
+                    <span class="text-yellow-400 tracking-[3px] uppercase text-sm">
+                        Chaque Mardi
+                    </span>
+
+                    <h3 class="text-4xl font-bold mt-2">
+                        OLD SCHOOL
+                    </h3>
                 </div>
-                <span class="text-yellow-400 font-semibold">
-                    50% sur tous les cocktails
-                </span>
-            </div>
 
-            <div class="flex justify-between items-center border-b border-white/20 pb-4 fade-slide fade-slide-delay-8">
-                <div>
-                    <h3 class="text-yellow-400 text-xl font-semibold">Jeudi</h3>
-                    <p>Shisha + 6 Shooters</p>
+                <div class="space-y-5 text-gray-200">
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            5 grandes bières
+                        </p>
+
+                        <span class="text-yellow-400 text-2xl font-bold">
+                            20$
+                        </span>
+                    </div>
+
+                    <div class="pt-2 text-sm text-gray-400">
+                        Hype Music : DJ RM • DJ Kiss
+                    </div>
+
                 </div>
-                <span class="text-2xl font-bold">15$</span>
+
             </div>
 
-            <div class="border-b border-white/20 pb-4 fade-slide fade-slide-delay-5">
-                <h3 class="text-yellow-400 text-xl font-semibold">Vendredi</h3>
-                <p>Achetez toute bouteille <strong>80$</strong></p>
-                <p>Recevez une shisha</p>
+            <!-- MERCREDI -->
+            <div class="glass rounded-3xl p-8 shadow-2xl transition duration-300 offer-card fade-up delay-4">
+
+                <div class="mb-6">
+                    <span class="text-yellow-400 tracking-[3px] uppercase text-sm">
+                        Chaque Mercredi
+                    </span>
+
+                    <h3 class="text-4xl font-bold mt-2">
+                        LADIES NIGHT
+                    </h3>
+                </div>
+
+                <div class="space-y-5 text-gray-200">
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Pizza 1+1
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Cocktail 1+1
+                        </p>
+                    </div>
+
+                    <div class="pt-2 text-sm text-gray-400">
+                        Hype Music : DJ RM • DJ Kiss
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="border-b border-white/20 pb-4 fade-slide fade-slide-delay-6">
-                <h3 class="text-yellow-400 text-xl font-semibold">Samedi</h3>
-                <p>Achetez 3 bouteilles recevez 1 gratuite</p>
-            </div>
+            <!-- JEUDI -->
+            <div class="glass rounded-3xl p-8 shadow-2xl transition duration-300 offer-card fade-up delay-4">
 
-            <div class="fade-slide fade-slide-delay-7">
-                <h3 class="text-yellow-400 text-xl font-semibold">Dimanche</h3>
-                <p>Achetez 1 bouteille de cognac</p>
-                <p>Recevez 1 cigare offert</p>
+                <div class="mb-6">
+                    <span class="text-yellow-400 tracking-[3px] uppercase text-sm">
+                        Chaque Jeudi
+                    </span>
+
+                    <h3 class="text-4xl font-bold mt-2">
+                        THIRSTY THURSDAY
+                    </h3>
+                </div>
+
+                <div class="space-y-5 text-gray-200">
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Jack Daniel - <strong>60$</strong>
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Black Label - <strong>60$</strong>
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Jagiermester - <strong>50$</strong>
+                        </p>
+                    </div>
+
+                    <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Jameson - <strong>50$</strong>
+                        </p>
+                    </div>
+
+                     <div class="border-b border-white/10 pb-4">
+                        <p class="text-lg">
+                            Jameson Black - <strong>70$</strong>
+                        </p>
+                    </div>
+
+                    <div class="pt-2 text-sm text-gray-400">
+                        Hype Music : DJ RM • DJ Kiss
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
 
         <!-- FOOTER -->
-        <div class="text-center mt-12 border-t border-white/20 pt-6 text-sm text-gray-200 fade-slide fade-slide-delay-8">
-            <p>3ᵉ NIVEAU BÂTIMENT HYPNOSE</p>
+        <div class="text-center mt-16 border-t border-white/10 pt-8 fade-up delay-4">
 
-            <p class="mt-3 text-yellow-400 font-semibold text-base">
+            <p class="tracking-[3px] uppercase text-gray-300 text-sm">
+                3ᵉ Niveau Bâtiment Hypnose
+            </p>
+
+            <p class="mt-5 text-yellow-400 font-semibold text-lg">
                 BOOK NOW
             </p>
 
-            <p class="mt-1">+243 9000 60024</p>
+            <p class="mt-2 text-lg">
+                +243 9000 60024
+            </p>
 
-            <div class="mt-6 text-gray-400 text-xs">
+            <div class="mt-8 text-gray-500 text-xs">
                 © {{ date('Y') }} Synergie UP — Tous droits réservés
-             </div>
+            </div>
+
         </div>
 
     </div>
+
 </div>
+
 </body>
 </html>
