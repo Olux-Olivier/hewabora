@@ -113,19 +113,33 @@
         <h3 class="text-2xl font-semibold text-yellow-400">{{ $dishType }}</h3>
       </div>
 
-      <!-- Grille de produits -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-        @foreach($products as $product)
-          <div class="bg-white/10 backdrop-blur-md border border-yellow-500/20 rounded-2xl overflow-hidden shadow-xl hover:scale-105 transform transition duration-300">
-            <img src="{{ $product->image ? asset('storage/' . $product->image) : asset('img/hero_bg.jpg') }}"
-                 alt="{{ $product->name }}" class="w-full h-48 object-cover opacity-90 hover:opacity-100 transition">
-            <div class="p-4 text-center">
-              <h2 class="font-semibold text-lg text-white">{{ $product->name }}</h2>
-              <p class="text-yellow-400 font-bold">${{ number_format($product->price, 2) }}</p>
-            </div>
-          </div>
-        @endforeach
-      </div>
+      <!-- Liste des produits -->
+<div class="bg-black/30 backdrop-blur-lg border border-yellow-500/20 rounded-3xl overflow-hidden shadow-2xl mb-12">
+
+    @foreach($products as $product)
+        <div class="flex items-center px-6 py-5 hover:bg-yellow-500/5 transition duration-300">
+
+            <!-- Nom -->
+            <span class="text-lg md:text-xl font-medium text-white whitespace-nowrap">
+                {{ $product->name }}
+            </span>
+
+            <!-- Ligne pointillée -->
+            <div class="flex-1 mx-4 border-b border-dashed border-yellow-500/40"></div>
+
+            <!-- Prix -->
+            <span class="px-4 py-1 rounded-full bg-yellow-500/10 border border-yellow-500/40 text-yellow-400 font-bold text-lg">
+                ${{ number_format($product->price, 2) }}
+            </span>
+
+        </div>
+
+        @if(!$loop->last)
+            <div class="mx-6 border-b border-white/5"></div>
+        @endif
+    @endforeach
+
+</div>
     @empty
       <p class="text-center text-gray-300">Aucun plat disponible pour le moment.</p>
     @endforelse
