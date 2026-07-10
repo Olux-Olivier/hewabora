@@ -33,7 +33,7 @@
 
 <body class="flex flex-col items-center justify-center min-h-screen text-white font-sans relative">
   <div class="fade-in bg-white/10 backdrop-blur-md border border-yellow-500/20 rounded-2xl shadow-2xl p-10 w-full max-w-3xl">
-    
+
     <!-- Logo -->
     <div class="text-center mb-6">
       <img src="{{ asset('img/Hewa_Bora_Logo.png') }}" alt="Hewa Bora Logo"
@@ -53,7 +53,7 @@
     </div>
 
     <!-- Formulaire -->
-    <form action="{{ isset($product) ? route('products.update', $product->id) : route('products.store') }}" 
+    <form action="{{ isset($product) ? route('products.update', $product->id) : route('products.store') }}"
           method="POST" enctype="multipart/form-data"
           class="flex flex-col items-center space-y-6 w-full">
       @csrf
@@ -133,8 +133,16 @@
     const dishContainer = document.getElementById('dish-options');
 
     const dishes = {
-      drink: ['Cocktails', 'Mocktails', 'Juices', 'Smoothies'],
-      food: ['Salades', 'Entrées', 'Soups', 'BBQ', 'Hamburgers', 'Pizza']
+      drink: ['Boissons Gazeuses et Eau', 'Jus Frais Naturel', 'Smoothies', 'Milk Shakes',
+        'Boissons Chaudes', 'Classique Cocktail', 'Cocktail Maison', 'Mocktails non-Alcool',
+        'Petit  Beers', 'Grandes Beers', 'Beers Importes', 'Vodka', 'Whisky', 'RUM', 'GIN',
+        'Tequila', 'Liqueur', 'Cognac', 'Champangne', 'Vin Rouge', 'Vin Blanc', 'Crème Liquer',
+        'Shots Measures 30ml', 'Shot Special', 'CIGARETTES/Cigars', 'Sheesha', ''
+      ],
+      food: ['Salades', 'Entrées', 'Soups', 'BBQ', 'Hamburgers', 'Pizza', 'Pain Plat', 'Shawarma',
+        'Pain Sandwich', 'Plat Congolais', ' Pasta', 'Plat Principal', 'Fruits de Mer', ' Accompagnment',
+        'Sauce au choix', ' Desserts', 'Night one', 'Night two'
+      ]
     };
 
     function updateDishOptions() {
