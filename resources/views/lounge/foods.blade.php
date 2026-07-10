@@ -72,7 +72,7 @@
       Lounge Bar — Menu Food
     </h1>
     <p class="text-gray-300 mb-6">Découvrez nos spécialités gastronomiques raffinées 🍽️</p>
-    <a href="{{ route('night.drinks') }}" class="relative px-6 py-2 font-semibold text-yellow-400
+    {{-- <a href="{{ route('night.drinks') }}" class="relative px-6 py-2 font-semibold text-yellow-400
                 border border-yellow-500/40 rounded-lg
                 transition duration-300 hover:text-black
                 overflow-hidden group">
@@ -81,7 +81,7 @@
                         opacity-0 group-hover:opacity-100 transition duration-300"></span>
 
         <span class="relative">Night Club</span>
-    </a>
+    </a> --}}
 
   </section>
 

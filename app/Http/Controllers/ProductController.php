@@ -142,14 +142,14 @@ class ProductController extends Controller
     }
 
     public function dashLoungeDrinks()
-{
-    $drinkProducts = Product::where('area', 'lounge')
-        ->where('category', 'drink')
-        ->get()
-        ->groupBy('dish_type');
+    {
+        $drinkProducts = Product::where('area', 'lounge')
+            ->where('category', 'drink')
+            ->get()
+            ->groupBy('dish_type');
 
-    return view('dashboard.lounge-drinks', compact('drinkProducts'));
-}
+        return view('dashboard.lounge-drinks', compact('drinkProducts'));
+    }
 
 public function dashNightDrinks()
 {
