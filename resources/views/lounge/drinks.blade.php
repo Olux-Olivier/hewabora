@@ -96,7 +96,7 @@
               transition duration-300">
       Drinks
     </a>
-    <a href="{{ route('lounge.foods') }}"
+    <a href="#"
        class="px-6 py-2 font-semibold rounded-lg border border-yellow-500/40 backdrop-blur-sm
               {{ Route::currentRouteName() == 'lounge.foods'
                 ? 'bg-yellow-500/80 text-black'

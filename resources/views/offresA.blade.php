@@ -89,7 +89,7 @@
             <!-- Bouton -->
             <div class="mt-8">
 
-                <a href="{{ url('/lounge/foods') }}"
+                <a href="{{ url('/lounge/drinks') }}"
                    class="inline-flex items-center gap-3 px-7 py-3 rounded-full
                           bg-white/10 border border-white/20 backdrop-blur-md
                           hover:bg-yellow-400 hover:text-black
