@@ -157,7 +157,7 @@
                     </div>
 
                     <div class="pt-2 text-sm text-gray-400">
-                        Hype Music : DJ RM • DJ Kiss
+                        Hype Music : DJ Kiss
                     </div>
 
                 </div>
