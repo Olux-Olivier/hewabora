@@ -17,19 +17,19 @@ class ProductController extends Controller
             ->get()
             ->groupBy('dish_type');
 
-            
+
 
         return view('night.drinks', compact('drinkProducts'));
     }
 
     public function nightFoods()
     {
-       
+
         $foodProducts = Product::where('area', 'night')
             ->where('category', 'food')
             ->get()
             ->groupBy('dish_type');
-        
+
         return view('night.foods', compact('foodProducts'));
     }
 
@@ -40,14 +40,14 @@ class ProductController extends Controller
             ->get()
             ->groupBy('dish_type');
 
-            
+
 
         return view('lounge.drinks', compact('drinkProducts'));
     }
 
     public function loungeFoods()
     {
-    
+
         $foodProducts = Product::where('area', 'lounge')
             ->where('category', 'food')
             ->get()
@@ -121,6 +121,9 @@ class ProductController extends Controller
     return redirect()->back()->with('success', 'Produit mis à jour avec succès.');
 }
 
+// ****************************************************
+// DASHBOARD METHODS
+// ****************************************************
 
     public function dashloungeFoods(){
         $foodProducts = Product::where('area', 'lounge')
@@ -158,8 +161,8 @@ public function dashNightDrinks()
     return view('dashboard.night-drinks', compact('drinkProducts'));
 }
 
-    
-   
+
+
     public function edit(Product $product)
     {
         return view('formUpdateProduct', compact('product'));

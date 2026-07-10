@@ -37,11 +37,50 @@
             </div>
 
             {{-- tableau --}}
-         
 
-                <x-product-table :products="$foodProducts" />
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th class="text-left py-2">Nom</th>
+                        <th class="text-left py-2">Type</th>
+                        <th class="text-right py-2">Prix</th>
+                        <th class="text-center py-2">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($foodProducts as $dishType => $products)
+                        @foreach($products as $product)
+                            <tr>
+                                <td class="py-2">{{ $product->name }}</td>
+                                <td class="py-2">{{ $dishType }}</td>
+                                <td class="py-2 text-right">
+                                    {{ number_format($product->price, 0, ',', ' ') }} FC
+                                </td>
 
-            
+                                <td class="py-2 text-center space-x-2">
+                                <a href="{{ route('products.edit', $product->id) }}"
+                                class="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded">
+                                    Modifier
+                                </a>
+
+                                <form action="{{ route('products.destroy', $product->id) }}"
+                                    method="POST"
+                                    class="inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                            onclick="return confirm('Supprimer cet article ?')"
+                                            class="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded">
+                                        Supprimer
+                                    </button>
+                                </form>
+                            </td>
+                            </tr>
+                        @endforeach
+                    @endforeach
+                </tbody>
+            </table>
+
         </div>
     </main>
 </body>
