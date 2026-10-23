@@ -12,9 +12,14 @@ Route::get('/', function () {
      return view('socials');
 });
 
+Route::get('journee-vareuse-classico-2026', function () {
+    return view('journee-vareuse-classico');
+});
+
 Route::get('/socials', function () {
     return view('socials');
 });
+
 Route::get('/hb-opening', function () {
     return view('hb-opening');
 });
