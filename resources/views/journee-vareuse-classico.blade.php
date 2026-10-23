@@ -94,10 +94,6 @@
     <div class="max-w-7xl mx-auto w-full px-6 md:px-12 pt-32 pb-20">
         <div class="max-w-3xl reveal text-center md:text-left mx-auto md:mx-0">
 
-            <p class="gold uppercase tracking-[.35em] text-xs md:text-sm font-bold mb-6">
-                Le rendez-vous des passionnés
-            </p>
-
             <p class="text-sm md:text-base tracking-[.2em] text-gray-300 mb-3">
                 25 OCTOBRE 2026
             </p>
