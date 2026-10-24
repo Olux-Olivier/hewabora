@@ -5,8 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#080d25">
-    <meta name="description" content="Journée Vareuse Classico au Hewa Bora Lounge Bar & Restaurant. Real Madrid contre Barcelone sur écran géant.">
-    <title>Journée Vareuse Classico | Hewa Bora</title>
+
+    <title>Journée Vareuse Classico 2026 | Hewa Bora</title>
+
+    <meta name="description" content="Journée Vareuse Classico 2026 au Hewa Bora Lounge Bar & Restaurant. Venez vivre le choc Real Madrid contre FC Barcelone sur écran géant !">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://hewabora.synergieup.store/journee-vareuse-classico-2026">
+
+    <!-- Prévisualisation WhatsApp, Facebook et Messenger -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Hewa Bora Lounge Bar & Restaurant">
+    <meta property="og:title" content="Journée Vareuse Classico 2026 | Hewa Bora">
+    <meta property="og:description" content="Enfile ta vareuse et viens vivre le Classico au Hewa Bora Lounge Bar & Restaurant ! Real Madrid contre FC Barcelone sur écran géant.">
+    <meta property="og:url" content="https://hewabora.synergieup.store/journee-vareuse-classico-2026">
+
+    <!-- Remplace ce chemin par le chemin réel de ton affiche -->
+    <meta property="og:image" content="https://hewabora.synergieup.store/img/classico-poster.jpg">
+    <meta property="og:image:alt" content="Affiche officielle de la Journée Vareuse Classico 2026 au Hewa Bora">
+
+    <!-- Prévisualisation Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Journée Vareuse Classico 2026 | Hewa Bora">
+    <meta name="twitter:description" content="Real Madrid contre FC Barcelone sur écran géant au Hewa Bora Lounge Bar & Restaurant.">
+    <meta name="twitter:image" content="https://hewabora.synergieup.store/img/classico-poster.jpg">
+    <meta name="twitter:image:alt" content="Affiche officielle de la Journée Vareuse Classico 2026">
 
     <script src="https://cdn.tailwindcss.com"></script>
 
