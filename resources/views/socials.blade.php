@@ -170,7 +170,7 @@
             {{-- Bouton Menu --}}
             <div class="mt-8 fade-up delay-1">
 
-                <a href="/offres"
+                <a href="/lounge/drinks"
 
                    class="menu-btn inline-flex items-center gap-3 px-8 py-4 rounded-full
 
