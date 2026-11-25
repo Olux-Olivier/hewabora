@@ -9,7 +9,7 @@ use App\Http\Controllers\ProductController;
 // });
 
 Route::get('/', function () {
-     return view('socials');
+     return view('maintenance');
 });
 
 Route::get('journee-vareuse-classico-2026', function () {

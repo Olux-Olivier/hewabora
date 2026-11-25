@@ -125,13 +125,46 @@ class ProductController extends Controller
 // DASHBOARD METHODS
 // ****************************************************
 
-    public function dashloungeFoods(){
-        $foodProducts = Product::where('area', 'lounge')
-            ->where('category', 'food')
-            ->get()
-            ->groupBy('dish_type');
-        return view('dashboard.lounge-foods', compact('foodProducts'));
+
+public function dashloungeFoods()
+{
+    // Catégories disponibles dans les nourritures du lounge
+    $dishTypes = Product::where('area', 'lounge')
+        ->where('category', 'food')
+        ->whereNotNull('dish_type')
+        ->where('dish_type', '!=', '')
+        ->distinct()
+        ->orderBy('dish_type')
+        ->pluck('dish_type');
+
+    // Catégorie sélectionnée
+    $selectedType = request('dish_type');
+
+    // Requête des nourritures
+    $query = Product::where('area', 'lounge')
+        ->where('category', 'food');
+
+    // Filtrer par catégorie si un onglet est sélectionné
+    if ($selectedType) {
+        $query->where('dish_type', $selectedType);
     }
+
+    // Récupérer les produits
+    $foodProducts = $query
+        ->orderBy('name')
+        ->get();
+
+    $totalFoods = Product::where('area', 'lounge')
+        ->where('category', 'food')
+        ->count();
+
+    return view('dashboard.lounge-foods', compact(
+        'foodProducts',
+        'dishTypes',
+        'selectedType',
+        'totalFoods'
+    ));
+}
 
     public function dashnightFoods(){
         $foodProducts = Product::where('area', 'night')
@@ -141,15 +174,48 @@ class ProductController extends Controller
         return view('dashboard.night-foods', compact('foodProducts'));
     }
 
-    public function dashLoungeDrinks()
-    {
-        $drinkProducts = Product::where('area', 'lounge')
-            ->where('category', 'drink')
-            ->get()
-            ->groupBy('dish_type');
 
-        return view('dashboard.lounge-drinks', compact('drinkProducts'));
+public function dashLoungeDrinks()
+{
+    // Catégories disponibles pour les boissons du Lounge
+    $dishTypes = Product::where('area', 'lounge')
+        ->where('category', 'drink')
+        ->whereNotNull('dish_type')
+        ->where('dish_type', '!=', '')
+        ->distinct()
+        ->orderBy('dish_type')
+        ->pluck('dish_type');
+
+    // Catégorie sélectionnée
+    $selectedType = request('dish_type');
+
+    // Requête des boissons
+    $query = Product::where('area', 'lounge')
+        ->where('category', 'drink');
+
+    // Filtrer selon l'onglet choisi
+    if ($selectedType) {
+        $query->where('dish_type', $selectedType);
     }
+
+    // Boissons à afficher
+    $drinkProducts = $query
+        ->orderBy('name')
+        ->get();
+
+    // Nombre total de boissons
+    $totalDrinks = Product::where('area', 'lounge')
+        ->where('category', 'drink')
+        ->count();
+
+    return view('dashboard.lounge-drinks', compact(
+        'drinkProducts',
+        'dishTypes',
+        'selectedType',
+        'totalDrinks'
+    ));
+}
+
 
 public function dashNightDrinks()
 {
