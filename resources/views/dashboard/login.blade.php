@@ -244,7 +244,7 @@
                                 required
                                 autofocus
                                 autocomplete="username"
-                                placeholder="Votre identifiant"
+                                placeholder="Username"
                                 class="form-input w-full border border-slate-200
                                        bg-slate-50 rounded-xl pl-11 pr-4 py-3
                                        text-slate-800 placeholder:text-slate-400"
@@ -288,7 +288,7 @@
                                 id="password"
                                 required
                                 autocomplete="current-password"
-                                placeholder="Votre mot de passe"
+                                placeholder="Password"
                                 class="form-input w-full border border-slate-200
                                        bg-slate-50 rounded-xl pl-11 pr-14 py-3
                                        text-slate-800 placeholder:text-slate-400"
