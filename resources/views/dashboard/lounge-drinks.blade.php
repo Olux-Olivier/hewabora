@@ -176,7 +176,7 @@
                            class="inline-flex items-center justify-center px-4 py-2.5 rounded-lg border border-slate-200 bg-white text-slate-600 text-sm font-medium hover:bg-slate-50 transition">
 
                             <i class="fa-solid fa-arrow-left mr-2"></i>
-                            Dashboard
+                            Accueil
                         </a>
 
                         <a href="{{ url('/form') }}"
@@ -186,6 +186,19 @@
                             Ajouter une boisson
                         </a>
 
+                    </div>
+
+                    <div class="flex items-center gap-3">
+                        <form action="{{ route('dashboard.logout') }}" method="POST">
+                            @csrf
+
+                            <button
+                                type="submit"
+                                class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+                            >
+                                Déconnexion
+                            </button>
+                        </form>
                     </div>
 
                 </div>

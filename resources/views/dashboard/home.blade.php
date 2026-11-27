@@ -97,9 +97,9 @@
 
                     <div class="w-12 h-12 rounded-full overflow-hidden border border-slate-200 bg-white flex items-center justify-center">
 
-                        @if(file_exists(public_path('images/logo.png')))
+                        @if(file_exists(public_path('img/Hewa_Bora_Logo.png')))
                             <img
-                                src="{{ asset('images/logo.png') }}"
+                                src="{{ asset('img/Hewa_Bora_Logo.png') }}"
                                 alt="Logo HewaBora"
                                 class="w-full h-full object-cover"
                             >
@@ -127,6 +127,20 @@
                     <span class="w-2 h-2 rounded-full bg-green-500"></span>
                     Administration
                 </div>
+
+                <div class="flex items-center gap-3">
+                    <form action="{{ route('dashboard.logout') }}" method="POST">
+                        @csrf
+
+                        <button
+                            type="submit"
+                            class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg"
+                        >
+                            Déconnexion
+                        </button>
+                    </form>
+                </div>
+
 
             </div>
         </header>

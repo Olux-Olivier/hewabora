@@ -3,6 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\QrController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardAuthController;
+use App\Http\Middleware\DashboardAuth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
+
 
 // Route::get('/', function () {
 //     return view('maintenance');
@@ -50,30 +55,109 @@ Route::get('/loungeRestaurant', function () {
     return view('RestaurantNightClub');
 });
 
+##############ADMIN DASHBOARD ROUTES##############
+// Connexion publique
+Route::get('/dashboard/login', [
+    DashboardAuthController::class,
+    'login'
+])->name('dashboard.login');
+
+Route::post('/dashboard/login', [
+    DashboardAuthController::class,
+    'authenticate'
+])
+->middleware('throttle:5,1')
+->name('dashboard.authenticate');
 Route::get('/form', function () {
     return view('formAddProduct');
 });
 
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-
-Route::put('/products/{product}',[ProductController::class, 'update'])->name('products.update');
-
-Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-
-Route::get('/dashboard', function () {
-    return view('dashboard.home');
-})->name('dashboard.home');
-
-// Lounge
-Route::get('/dashboard/lounge/foods', [ProductController::class, 'dashloungeFoods'])->name('dashboard.lounge.foods');
-
-Route::get('/dashboard/lounge/drinks', [ProductController::class, 'dashLoungeDrinks'])->name('dashboard.lounge.drinks');
-
-// Night
-Route::get('/dashboard/night/foods', [ProductController::class, 'dashnightFoods'])->name('dashboard.night.foods');
-
-Route::get('/dashboard/night/drinks', [ProductController::class, 'dashNightDrinks'])->name('dashboard.night.drinks');
+// Déconnexion
+Route::post('/dashboard/logout', [
+    DashboardAuthController::class,
+    'logout'
+])
+->middleware(DashboardAuth::class)
+->name('dashboard.logout');
 
 
-Route::delete('/delete/{product}',[ProductController::class, 'destroy'])->name('products.destroy');
+// Toutes les routes protégées
+Route::middleware(DashboardAuth::class)->group(function () {
+
+    Route::get('/form', function () {
+        return view('formAddProduct');
+    });
+
+    Route::post('/products', [
+        ProductController::class,
+        'store'
+    ])->name('products.store');
+
+    Route::put('/products/{product}', [
+        ProductController::class,
+        'update'
+    ])->name('products.update');
+
+    Route::get('/products/{product}/edit', [
+        ProductController::class,
+        'edit'
+    ])->name('products.edit');
+
+    Route::get('/dashboard', function () {
+        return view('dashboard.home');
+    })->name('dashboard.home');
+
+    // Lounge
+    Route::get('/dashboard/lounge/foods', [
+        ProductController::class,
+        'dashloungeFoods'
+    ])->name('dashboard.lounge.foods');
+
+    Route::get('/dashboard/lounge/drinks', [
+        ProductController::class,
+        'dashLoungeDrinks'
+    ])->name('dashboard.lounge.drinks');
+
+    // Night
+    Route::get('/dashboard/night/foods', [
+        ProductController::class,
+        'dashnightFoods'
+    ])->name('dashboard.night.foods');
+
+    Route::get('/dashboard/night/drinks', [
+        ProductController::class,
+        'dashNightDrinks'
+    ])->name('dashboard.night.drinks');
+
+    Route::delete('/delete/{product}', [
+        ProductController::class,
+        'destroy'
+    ])->name('products.destroy');
+
+});
+
+
+
+// Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+
+// Route::put('/products/{product}',[ProductController::class, 'update'])->name('products.update');
+
+// Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard.home');
+// })->name('dashboard.home');
+
+// // Lounge
+// Route::get('/dashboard/lounge/foods', [ProductController::class, 'dashloungeFoods'])->name('dashboard.lounge.foods');
+
+// Route::get('/dashboard/lounge/drinks', [ProductController::class, 'dashLoungeDrinks'])->name('dashboard.lounge.drinks');
+
+// // Night
+// Route::get('/dashboard/night/foods', [ProductController::class, 'dashnightFoods'])->name('dashboard.night.foods');
+
+// Route::get('/dashboard/night/drinks', [ProductController::class, 'dashNightDrinks'])->name('dashboard.night.drinks');
+
+
+// Route::delete('/delete/{product}',[ProductController::class, 'destroy'])->name('products.destroy');
 
